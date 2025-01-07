@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오디오와 비디오 태그</title>
+</head>
+<body>
+    <!-- 오디오, 비디오, pdf등 다양한 파일을 실행하는 태그 -->
+    <object width="900" height="800" data="product.pdf"></object>
+    <!-- object, video,audio태그가 실행되지 않는 옛날 브라우저에서 파일을 실행하는 태그 -->
+    <embed src="medias/spring.mp3">
+    <!-- audio, video 태그의 속성들 -->
+        <!-- controls : 컨트롤 패널 출력한다. -->
+        <!-- autoplay : video태그에서 muted속성을 설정해야 사용가능(사건이 있었음) -->
+        <!-- muted : 음소거 -->
+        <!-- poster="파일이름" : 비디오의 썸네일(재생되기 전의 이미지)-->
+        <!-- loop : 반복 재생 -->
+    <audio src="medias/spring.mp3" controls muted></audio>
+    <video src="medias/salad.mp4" controls muted autoplay loop width="700"></video>
+    <embed src="https://www.youtube.com/embed/76BVBdsOXrI?si=nUzU8RZDgZCH-BoK" width="560" height="315"> <!--유튜브는 video로 안됨-->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/3ERvMGZDrHE?si=SIFPg0HYaWKXmXxc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+</body>
+</html>

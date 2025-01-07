@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input 태그의 속성</title>
+</head>
+<body>
+    <form action="링크 관련 태그.html" method="get">
+        <fieldset>
+            <legend>로그인</legend>
+            <!-- placeholder : input태그에 대한 설명문 적는 속성 -->
+            <!-- autofocus : 페이지가 출력되었을 때 선택되어 있는 태그 설정-->
+            <!-- required : 필수로 작성해야 하는 input태그에 설정, 작성하지 않으면 submit이 실행되지 않음-->
+            <label for="id">아이디</label>
+            <input type="text" name="id" placeholder="아이디를 입력해주세요." autofocus required><br>
+            <label for="pw">비밀번호</label>
+            <input type="password" name="pw" placeholder="비밀번호를 입력해주세요." required><br>
+            <input type="submit" value="로그인">
+        </fieldset>
+    </form>    
+</body>
+</html>

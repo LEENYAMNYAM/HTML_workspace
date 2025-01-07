@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 정렬 스타일</title>
+    <style>
+        /* line-height : 줄간격 */
+        /* div나 h1같은 영역을 가지는 태그의 세로크기와 line-height 동일하게 설정하면 세로 중앙 정렬 */
+        h1{
+            border:1px solid #000;
+            text-align: center;
+            height: 100px;
+            line-height: 100px;                                           /* line-height : 줄간격 */ 
+        }                          
+        /* text-align : 가로정렬 */
+        p{border : 1px solid #000;}                                     /* border 외곽선 */
+        .p1{text-align: center; line-height: 10px;}          
+        .p2{text-align: left; line-height: 20px; letter-spacing: 10px;}   /* letter-spacing : 글자 사이 간격 */       
+        .p3{text-align: right; line-height: 30px; word-spacing: 20px;}    /* word-spacing : 단어 사이 간격 */    
+        .p4{text-align: justify; line-height: 40px;}                      /* justify : 양쪽 정렬 */
+        .p5{text-align: start;}                                           /* start : 현재 텍스트 줄의 시작위치에 맞춰 문단을 정렬 */
+        .p6{text-align: end;}                                             /* end : 현재 텍스트 줄의 끝위치에 맞춰 문단을 정렬 */
+        .s1{text-decoration: underline;}
+        .s2{text-decoration: line-through;}
+        .s3{text-decoration: overline;}
+        a{text-decoration: none; color: #000;}                          /* none : 밑줄 없애기 */
+        a:hover{text-decoration: underline;}                              /* hover : 마우스를 올렸을 때 */
+        .shadow1{text-shadow: 2px 2px 3px #000;}                        /* text-shadow : 가로 세로 번짐정도 색상*/
+        .shadow2{text-shadow: 3px 3px red;}                        
+        .shadow3{text-shadow: -5px -5px 10px blue;}                        
+    </style>
+</head>
+<body>
+    <div>
+        <h1>레드향</h1>
+        <p class="p1">껍질에 붉은 빛이 돌아 <span>레드향</span>이라 불린다.
+            레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 
+            과육이 붉고 통통하다.비타민 C와 비타민P가 풍부해 혈액순환, 감기예방 등에 좋은 것으로 알려져 있다.</p>
+        <p class="p2">껍질에 붉은 빛이 돌아 <span>레드향</span>이라 불린다.
+            레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 
+            과육이 붉고 통통하다.비타민 C와 비타민P가 풍부해 혈액순환, 감기예방 등에 좋은 것으로 알려져 있다.</p>
+        <p class="p3">껍질에 붉은 빛이 돌아 <span>레드향</span>이라 불린다.
+            레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 
+            과육이 붉고 통통하다.비타민 C와 비타민P가 풍부해 혈액순환, 감기예방 등에 좋은 것으로 알려져 있다.</p>
+        <p class="p4">
+            <span class="s1 shadow1">껍질</span>에 
+            <span class="s2 shadow2">붉은 빛</span>이 돌아 
+            <span class="s3 shadow3">레드향</span>이라 불린다.
+            레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 
+            과육이 붉고 통통하다.비타민 C와 비타민P가 풍부해 혈액순환, 감기예방 등에 좋은 것으로 알려져 있다.</p>
+        <p><a href="#">네이버</a></p>
+        <p class="p5">껍질에 붉은 빛이 돌아 <span>레드향</span>이라 불린다.
+            레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 
+            과육이 붉고 통통하다.비타민 C와 비타민P가 풍부해 혈액순환, 감기예방 등에 좋은 것으로 알려져 있다.</p>
+        <p class="p6">껍질에 붉은 빛이 돌아 <span>레드향</span>이라 불린다.
+            레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 
+            과육이 붉고 통통하다.비타민 C와 비타민P가 풍부해 혈액순환, 감기예방 등에 좋은 것으로 알려져 있다.</p>
+    </div>
+</body>
+</html>

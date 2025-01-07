@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레드향 주문하기</title>
+    <link rel="stylesheet" href="./css/order.css">
+</head>
+<body>
+    <div id="container">
+        <form action="#" method="get" name="Ex1" id="Ex1">
+            <h1>레드향 주문하기</h1>
+            <fieldset>
+                <legend><b>배송 정보</b></legend>
+                    <ul id="shipping">
+                        <li>
+                            <label for="id">이름</label>
+                            <input type="text" name="id" id="id" size="40" placeholder="주문 상품 이름" autofocus required>
+                        </li>
+                        <li>
+                            <label for="address">배송 주소</label>
+                            <input type="text" name="address" id="address" size="40" placeholder="상세 주소를 입력해주세요" required>
+                        </li>
+                        <li>
+                            <label for="">이메일</label>
+                            <input type="email" name="email" id="email" size="40" placeholder="반드시 적어주세요" required>
+                        </li>
+                        <li>
+                            <label for="id">연락처</label>
+                            <input type="tel" name="tel" id="tel" size="40" placeholder="하이픈 빼고 입력해주세요(01012345678)" required>
+                        </li>
+                        <li>
+                            <label for="date">배송 지정</label>
+                            <input type="date" name="date" id="date" required><small> (주문일로부터 최소 3일 이후) </small>
+                        </li>
+                    </ul>        
+            </fieldset>
+            <input type="submit" class="order" value="주문하기">
+            <input type="reset" class="cancel" value="취소하기">
+        </form>
+    </div>
+</body>
+</html>

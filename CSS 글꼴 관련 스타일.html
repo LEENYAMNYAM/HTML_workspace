@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글꼴 관련 스타일</title>
+    <!-- 폰트 파일을 적용하는 방식2 -->
+        <!-- CDN방식 : 브라우저가 http링크를 사용하여 필요한 파일을 받는 방식 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Nanum+Pen+Script&family=Single+Day&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .dokdo-regular {
+            font-family: "Dokdo", serif;
+            font-weight: 400;
+            font-style: normal;
+            }
+        .nanum-pen-script-regular {
+            font-family: "Nanum Pen Script", serif;
+            font-weight: 400;
+            font-style: normal;
+            }
+        .single-day-regular {
+            font-family: "Single Day", serif;
+            font-weight: 400;
+            font-style: normal;
+            }
+        
+        body{
+            font-family: "맑은 고딕", "돋움", "굴림";
+            background-image: url(./images/notice.jpg);
+        }
+        h1{font-size: 40px;}
+        p{font-size: 20px;}
+        span{
+            /* 색상 설정 방식 */
+                /* 1. 색상의 이름 설정 */
+                    color: blue;
+                /* 2. 16진수 숫자 : #ffffff */
+                    color: #000;
+                /* 3. rgb(red, green, blue) */
+                    color: rgb(255,0,255); 
+                /* 4. rgba(red, green, blue, alpha) alpha는 투명도*/
+                    color: rgba(255,0,255,0.5);
+                /* 5. hsl(색상, 채도, 명도) */
+                    color: hsl(20.5, 100%, 50%);
+                /* 6. hsla(색상, 채도, 명도, alpha) */
+                    color: hsla(20.5, 100%, 50%, 0.5);
+            /* 글자 크기 설정 방식 */
+                /* em단위 : 부모의 값을 1로 치환하여 표현하는 단위 */
+                /* rem단위 : 최상위(html)태그의 값을 1로 치환하여 표현하는 단위(기본 16px) */
+                font-size: 1.5rem;
+            /* font-style : 글자를 기울이거나 기울이지 않도록 표현하는 속성(normal, italic) */
+                font-style: italic;
+            /* font-weight : 글자의 굵기 설정(normal, bold, bolder, lighter, 100~900) */
+                /* bold : 700, normal : 400 */
+                font-weight: 800;            
+            }
+        /* 폰트 파일을 적용하는 방식1 */
+            /* 웹 폰트 : 개발자가 설정한 폰트를 사용하기 위해 웹에 폰트를 올려두고 
+                    고객이 페이지를 열었을 때 다운받아 실행하는 폰트 */
+            /* CDN방식 : 코드 상단 링크 걸려있는 부분에 설명을 적어두었음. */
+        @font-face {
+            font-family: 'NanumPen';
+            src: url(./font/NanumPenScript-Regular.ttf) format('truetype');
+            }
+        h1{font-family: 'NanumPen';}
+        p{font-family: 'Single Day';}
+        
+    </style>
+</head>
+<body>
+    <div>
+        <h1>레드향</h1>
+        <p>껍질에 붉은 빛이 돌아 <span class="dokdo-regular">레드향</span>이라 불린다.</p>
+        <p>레드향은 한라봉과 귤을 교배한 것으로 일반 귤보다 2~3배 크고, 과육이 붉고 통통하다.</p>
+        <p>비타민 C와 비타민P가 풍부해 혈액순환, 감기예방 등에 좋은 것으로 알려져 있다.</p>
+    </div>
+    <ul>
+        <li>
+            <i class="fa-solid fa-house-chimney"></i>
+            <a href="#">메뉴1</a>
+        </li>
+        <li>
+            <i class="fa-regular fa-calendar-check"></i>
+            <a href="#">메뉴2</a>
+        </li>
+        <li>    
+            <i class="fa-solid fa-battery-quarter"></i>
+            <a href="#">메뉴3</a>
+        </li>
+    </ul>
+</body>
+</html>
