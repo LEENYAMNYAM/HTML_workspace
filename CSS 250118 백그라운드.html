@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backgournd</title>
+    <style>
+        .desc{
+            border : 10px dotted black;
+            padding: 20px;
+            width: 350px;
+            background-color: yellow;
+            margin-right: 20px;
+            /* float : left; */
+        }
+
+        #clip-border{background-clip: border-box;}      /*  테두리까지(기본값) */
+        #clip-padding{background-clip: padding-box;}    /*  패딩까지 */
+        #clip-content{background-clip: content-box;}    /*  컨텐츠부분만 */
+ 
+        #imageBgBox{
+            width: 100%;
+            height: 500px;
+            background-image: url('./images/bg1.jpg');
+            background-repeat: no-repeat;
+            /* repeat, no-repeat, repeat-x, repeat-y */
+        }
+
+        .posUl{
+            list-style: none;
+            margin-left: -30px;
+        }   
+
+        .posLi{
+            padding-left: 50px; /* 왼쪽패딩 */
+            line-height: 40px;  /* 줄간격 */
+            background-image:url('./images/dot.png');
+            background-repeat: no-repeat;
+            background-position: left center;   /* 수평위치 수직위치*/
+        }
+
+        #wrapper{
+            width: 100%;
+            height: 1000px;
+            background-image: url('./images/bg2.png');
+            background-repeat: no-repeat;
+            background-position: right top;
+            background-attachment: fixed;
+        }
+        .divBox{
+            width : 400px;
+            height: 250px;
+            padding : 20px;
+            border: 20px solid rgba(204, 204, 204, 0.493);
+            margin-bottom : 20px;
+            background-image: url('./images/9_bg3.png');
+            background-repeat: no-repeat;
+            background-position: right top;
+        }
+        #bg1{background-origin: padding-box;}
+        #bg2{background-origin: border-box;}
+        #bg3{background-origin: content-box;}
+
+        #wrapper2{
+            width: 1100px;
+            margin: 50px auto;
+        }
+        .divBox2{
+            display: inline-block;
+            border: 1px solid black;
+            width: 300px;
+            height: 300px;
+            margin : 20px;
+            background : url('./images/9_bg4.jpg') no-repeat left top;;
+        }
+        #bgSize1{background-size: auto;}
+        #bgSize2{background-size: 200px;}       /* 가로를 200px, 비율유지 */
+        #bgSize3{background-size: 50%;}         /* 가로를 원사이즈의 50%, 비율유지 */
+        #bgSize4{background-size: 100% 100%;}   /* 가로를 100%, 세로를 100% */
+        #bgSize5{background-size: contain;}     /* 짧은 쪽 길이에 꽉차도록(이미지 비율 유지) */
+        #bgSize6{background-size: cover;}       /* 긴쪽 길이에 꽉차도록(이미지 비율 유지) */
+
+    </style>
+</head>
+<body>
+        <h1> 1. background-clip 속성 : 배경을 어디까지 적용할 것인가?</h1>
+    <!-- 
+    border-box : 테두리까지 배경이 적용된다. 기본값이다.
+    padding-box : 안쪽 여백(padding)까지 배경이 적용된다.
+    content-box : 내용부분만 배경이 적용된다.
+    -->
+    <div class = "container">
+        <div class = "desc" id="clip-border">
+            <h1>레드향</h1>
+            <p>껍질에 붉은 빛이 돌아<b>레드향</b>이라 불린다.</p>
+            <p>레드향은 <em>한라봉과 귤을 교배</em>한 것이다. </p>
+        </div>
+    </div>
+    <div class = "container">
+        <div class = "desc" id="clip-padding">
+            <h1>레드향</h1>
+            <p>껍질에 붉은 빛이 돌아<b>레드향</b>이라 불린다.</p>
+            <p>레드향은 <em>한라봉과 귤을 교배</em>한 것이다. </p>
+        </div>
+    </div>
+    <div class = "container">
+        <div class = "desc" id="clip-content">
+            <h1>레드향</h1>
+            <p>껍질에 붉은 빛이 돌아<b>레드향</b>이라 불린다.</p>
+            <p>레드향은 <em>한라봉과 귤을 교배</em>한 것이다. </p>
+        </div>
+    </div>
+
+    <hr>
+
+    <h1> 2. backgournd-image : 배경으로 이미지를 삽입 </h1>
+    <!-- backgournd-repeat : 배경의 이미지를 반복해서 출력할것인가?
+            속성값 : repeat : 요소의 크기에 맞게 반복
+                    repeat-x : 요소의 너비에 맞게 반복(가로로만)
+                    repeat-y : 요소의 높이에 맞게 반복(세로로만)
+                    no-repeat : 이미지를 반복하지 않고 한 번만 출력.
+    -->
+    <div id="imageBgBox"></div>>
+
+    <hr>
+
+    <h1> 3. backgournd-position : 배경이미지를 반복하지 않을 경우, 이미지 위치를 지정</h1>
+    <!-- backgournd-position : 수평위치 수직위치;
+            수평위치 : left / center / right / 백분율 / 길이값
+            수직위치 : top / center / bottom / 백분율 / 길이값
+    -->
+    <h3>이지스퍼블리싱</h3>
+    <ul class="posUl">
+        <li class="posLi">회사소개</li>
+        <li class="posLi">도서</li>
+        <li class="posLi">자료실</li>
+        <li class="posLi">질무답변</li>
+    </ul>
+
+    <h1> 4. background-origin : 배경 이미지를 배치하기 위한 기준</h1>
+    <!-- 속성값 : padding-box : 패딩을 기준으로 이미지를 배치한다.
+                border-box : 테두리를 기준으로 이미지를 배치한다.
+                content-box : 내용을 기준으로 이미지를 배치한다. 
+    -->
+    <!-- background-attachment : 배경 이미지를 고정하는 속성
+            속성값 : scroll : 배경 이미지가 스크롤과 함께 이동
+                     fixed : 스크롤과 관계없이 브라우저 고정
+    -->
+    <div id="wrapper">
+        <div id="bg1" class="divBox">
+            <h2>바빠 시리즈</h2>
+            <h3> - 바쁜 학생을 위한 빠른 학습법</h3>
+            <p> 쉬운 내용은 압축하여 빠르게, 어려운 내용은 더 많이 공부!</p>
+        </div>
+        <div id="bg2" class="divBox">
+            <h2>바빠 시리즈</h2>
+            <h3> - 바쁜 학생을 위한 빠른 학습법</h3>
+            <p> 쉬운 내용은 압축하여 빠르게, 어려운 내용은 더 많이 공부!</p>
+        </div>
+        <div id="bg3" class="divBox">
+            <h2>바빠 시리즈</h2>
+            <h3> - 바쁜 학생을 위한 빠른 학습법</h3>
+            <p> 쉬운 내용은 압축하여 빠르게, 어려운 내용은 더 많이 공부!</p>
+        </div>
+    </div>
+    
+    <hr>
+
+    <h1> 5. backgournd 속성과 backgournd-size 속성</h1>
+    <!-- background : 앞서 작성한 image, repeat, position, attachment를 한 번에 작성 -->
+    <!-- background 사용 예시) background : url('이미지경로') no-repeat right top fixed; -->
+    <!-- background-size : 크기 조절
+            속성값 : auto : 기본값
+                    cover : 요소 전체를 채울 수 있도록 이미지를 확대 또는 축소(이미지 비율 유지)
+                    contain : 요소 전체를 채울 수 있도록 이미지를 확대 또는 축소(이미지 비율 유지)
+                    백분율 : 요소의 크기에 대한 백분율로 지정(%) - 비율을 생각해야한다.
+                    길이값 : 요소의 크기에 대한 길이값으로 지정(px) - 비율을 생각해야한다.
+    -->
+
+    <div id="wrapper2">
+        <div class="divBox2" id="bgSize1"></div>
+        <div class="divBox2" id="bgSize2"></div>
+        <div class="divBox2" id="bgSize3"></div>
+        <div class="divBox2" id="bgSize4"></div>
+        <div class="divBox2" id="bgSize5"></div>
+        <div class="divBox2" id="bgSize6"></div>
+    </div>
+
+    </body>
+</html>

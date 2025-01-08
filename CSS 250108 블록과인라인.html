@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블록과 인라인</title>
+    <style>
+        /* body * {
+            border : 1px solid blue;
+        } */
+        .accent {
+            color: red;
+            font-weight: bold;
+            width: 300px;
+        }
+        .box1{
+            width: 400px;
+            height: 200px;
+        }
+        .box_content{
+            box-sizing: content-box; /* 기본값이므로 작성하지 않아도 된다.*/
+            width: 200px;
+            height: 100px;
+            padding : 20px;
+            border : 10px solid black;
+        }
+        .box_border{
+            box-sizing: border-box; /* 기본값이 아니므로 작성해야한다.*/
+            width: 200px;
+            height: 100px;
+            padding : 20px;
+            border : 10px solid blue;
+        }
+        .shadowBtn{
+            font-size : 2em;
+            background : #fff;
+            padding : 15px 30px;
+            margin: 15px;
+            border: 1px solid black;
+            box-shadow: 2px 2px 5px black;
+        }
+        .solidBox{
+            width: 200px;
+            height: 100px;
+            border-style : solid;
+            /* 4가지(top, right, bottom, left)로 사용할 수 있다. */
+
+        /* border-width를 각각 지정할 경우 */
+            /* border-width : 5px; */ 
+            /* 모든 방향에 5px */
+
+            /* border-width : 5px 10px; */ 
+            /*top 5px, right 10px 나머지(bottom, left)는 마주보는 방향의 값을 가져간다*/
+
+            /* border-width : 5px 10px 1px; */
+            /*top 5px, right 10px, bottom 1px, left는 마주보는 방향을 값을 가져간다 */
+
+            border-width : 5px 10px 1px 20px; 
+            /*top 5px, right 10px, bottom 1px, left 20px  */
+
+            margin : 15px;
+
+        }    
+        .dottedBox{
+            width: 200px;
+            height: 100px;
+            border-style : dotted;
+            border-width : 5px;
+            /* border-color는 top right bottm left를 속성에 추가해서 개별 지정 가능 */
+            border-color: red;
+            border-top-color : green;
+            border-bottom-color : yellow;
+            border-right-color: orange;
+            margin : 15px;
+        }
+        .dashedBox{
+            width: 200px;
+            height: 100px;
+            border-style : dashed;
+            border-width : 5px;
+            margin : 15px;
+        }
+        .borderDiv{
+            width: 200px;
+            height: 100px;
+            margin: 15px;
+            /* border를 통해 width, style, color 한번에 지정 가능 */
+            /* border : 5px solid red; */
+            /* top, bottom, left, right를 속성에 추가하여 따로 지정도 가능 */
+            border-bottom: 10px dotted blue;
+        }
+        .roundedBox{
+            width: 200px;
+            height: 200px;
+            margin: 15px;
+            border: 2px solid black;
+            /* border-radius는 모서리를 둥글게 할때의 반지름의 크기를 지정 */
+            border-radius: 50px;
+            /* border-radius 를 따로 지정하기 */
+            border-top-left-radius :  100px;
+            border-bottom-right-radius: 100px;
+        }
+        .roundedBox2{
+            width: 200px;
+            height: 200px;
+            margin: 15px;
+            border: 2px solid black;
+            /* border-radius의 반지름을 다르게 설정하기 */
+            border-radius : 50px/100px;
+            /* 모서리가 타원 모양으로 잡힙 */
+            /* 위치를 지정안했다면 "/" 기준으로 앞이 가로, 뒤가 세로 */
+            border-bottom-left-radius : 100px 50px;
+            /* 위치를 지정해줬다면, /는 사용안함. 앞이 가로, 뒤가 세로 */
+        }.marginDiv{
+            width: 200px;
+            height: 100px;
+            display: inline-block;
+            border : 1px solid black;
+
+        }
+        #margin1{
+            margin: 50px;
+        }
+        #margin2{
+            margin: 30px 50px;
+        }
+        #margin3{
+            margin: 30px 20px 50px;
+        }
+        #margin4{
+            margin: 30px 50px 10px 20px;
+        }
+        #margin5{
+            margin-right: 20px;
+        }
+        #centerMargin{
+            width: 200px;
+            height: 100px;
+            margin: 0 auto;
+            /* left와 right에 mardin이 자동으로 적용되기 때문에 가운데 정렬 가능  */
+            border : 1px solid black;
+        }
+        .nestingBox{
+            width: 200px;
+            height: 100px;
+            margin: 30px;
+        }
+        #nesting1{background : blue; margin-bottom: 50px;}
+        #nesting2{background : red;}
+        #nesting3{background : green;}
+        .paddingBox{
+            display: inline-block;
+            border: 1px solid black;
+        }
+        #padding1{
+            padding: 20px 30px 40px 50px;
+        }
+        #padding2{
+            padding: 20px 30px;
+        }
+        #padding3{
+            padding: 20px;
+        }
+        .ulTag{
+            list-style : none; /* 불릿 이미지 없앰 */
+        }
+        .liTag{
+            display: inline-block;
+            width : 100px;
+            height: 40px;
+            line-height: 40px; /* 글자 수직 가운데 정렬 */
+            text-align: center; /* 글자 수평 가운데 정렬 */
+            margin: 10px;
+            border: 1px solid black;
+        }
+        .aLink{
+            text-decoration: none; /* 밑줄 없앰 */
+        }
+        .floatImg{
+            /* float: left; 
+            왼쪽에 떠있게
+            float: right;
+            오른쪽에 떠있게 */
+            margin-right: 40px;
+        }
+        .wrapper{
+            width : 800px;
+            margin : 10px auto;
+            padding : 20px;
+            border : 1px solid black;
+        }
+        .floatBox{
+            padding : 50px;
+            margin : 10px;
+        }
+        #floatBox1{
+            background : yellow;
+            float: left;
+        }
+        #floatBox2{
+            padding-bottom : 100px;
+            background : blue;
+            float: right;
+        }
+        .clear{
+            /* clear : float 해제하기 */
+                /* both : 양쪽 float 해제하기 */
+                /* left : 왼쪽 float만 해제하기 */
+            clear: both;
+            clear: left;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <h1> 1. 블록 라벨 요소와 인라인 레벨 요소</h1>
+
+<!-- 블록레벨 : 한줄을 다 차지 함 -->
+    <!-- 블록레벨에서만 width와 height를 사용할수 있음. -->
+<!-- 인라인레벨 : 한 라인 안에서  -->
+    <!-- 인라인레벨에서는 width와 height를 사용할수 없음. -->
+    
+    <h1>시간이란...</h1>
+    <div class="box1">내일 죽을 것처럼 <p class = "accent">오늘</p>을 살고</div>
+    <p>영원히 살 것처럼 <br>내일을 꿈꾸어라</p>
+
+    <hr>
+
+    <h1>시간이란...</h1>
+    <div>내일 죽을 것처럼 <span class = "accent">오늘</span>을 살고</div>
+    <p>영원히 살 것처럼 <br>내일을 꿈꾸어라</p>
+
+    <hr>
+
+    <h1> 2. box-sizing 속성(contant-box와 border-box) </h1>
+
+    <div class = "box_content"> </div>
+    <div class = "box_border"> </div>
+
+    <hr>
+
+    <h1> 3. box-chadow 속성</h1>
+
+    <button class="shadowBtn">Do it!</button>
+
+    <hr>
+
+    <h1> 4. border-style</h1>
+
+    <div class="solidBox"></div>"
+    <div class="dottedBox"></div>"
+    <div class="dashedBox"></div>"
+    <div class="borderDiv">아래쪽 테두리</div>    
+    <div class="roundedBox"></div>
+    <div class="roundedBox2"></div>
+
+    <hr>
+
+    <h1> 5. Margin (테두리 바깥쪽 여백) </h1>
+
+    <div id="margin1" class="marginDiv"></div>
+    <div id="margin2" class="marginDiv"></div>
+    <div id="margin3" class="marginDiv"></div>
+    <div id="margin4" class="marginDiv"></div>
+    <div id="margin5" class="marginDiv"></div>
+    <div id="centerMargin">수평중앙맞추기</div>
+
+    <hr>
+
+    <h1> ** 마진 중첩 현상 </h1>
+    <!-- 세로 마진이 있을 때 큰쪽으로 겹치게 됨 -->
+    <div id="nesting1" class="nestingBox"></div> 
+    <div id="nesting2" class="nestingBox"></div> 
+    <div id="nesting3" class="nestingBox"></div> 
+
+    <hr>
+
+    <h1> 6. padding (테두리 안쪽 여백)</h1>
+
+    <h1 class="paddingBox">Hello</h1>
+    <h1 id="padding1" class="paddingBox">HELLO</h1>
+    <h1 id="padding2" class="paddingBox">HELLO</h1>
+    <h1 id="padding3" class="paddingBox">HELLO</h1>
+
+    <h1> 7. display 요소(block, inline, inline-block, none) </h1>
+
+    <nav>
+        <ul class="ulTag">
+            <li class="liTag"><a href="#" class="aLink">메뉴 1</a></li>
+            <li class="liTag"><a href="#" class="aLink">메뉴 2</a></li>
+            <li class="liTag"><a href="#" class="aLink">메뉴 3</a></li>
+            <li class="liTag"><a href="#" class="aLink">메뉴 4</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <h1>8. float 속성(요소를 왼쪽/오른쪽에 떠있게 만듬)</h1>
+
+    <p>Lorem Commodi, amet dolores nesciunt cupiditate nobis perferendis delectus praesentium ratione beatae deserunt ducimus consequatur harum sunt, earum, doloribus provident possimus ipsum eius.</p>
+    <img src="./images/tree.png" class="floatImg">
+    <p>Lorem Numquam dolor distinctio laboriosam consequuntur dignissimos vero explicabo nihil? Expedita at id, nihil laboriosam asperiores dolore! Deserunt recusandae quos ullam aut cumque!</p>
+    <p>Lorem Vitae consequuntur voluptatibus quasi perspiciatis. Consectetur cumque esse est a eos accusantium expedita omnis, fugiat provident vero ex. Voluptas laborum quibusdam aspernatur.</p>
+
+    <div class="wrapper">
+        <div class="floatBox" id="floatBox1">박스1</div>
+        <div class="floatBox" id="floatBox2">박스2</div>
+        <p>Lorem Quo adipisci nemo placeat molestiae, iste mollitia voluptatibus omnis repellendus voluptas totam quia atque tenetur. Magni fugiat quo accusantium? Aperiam, quis totam!</p>
+        <p class="clear">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum dolores nulla, perferendis odio dignissimos inventore eos maxime culpa natus autem reprehenderit temporibus repellat reiciendis ratione dolore! Doloribus veniam ex reiciendis?</p>
+    </div>
+
+</body>
+</html>
