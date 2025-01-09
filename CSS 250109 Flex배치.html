@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex배치</title>
+    <style>
+        .container{
+            width: 700px;
+            display: flex;
+            background-color: lightgray;
+            border: 1px solid black;
+            margin-bottom: 30px;
+        }
+        .box{
+            padding: 5px 45px;
+            margin: 5px;
+            width: 80px;
+        }
+        .box:nth-child(odd){
+            background-color: orange;
+        }
+        .box:nth-child(even){
+            background-color: lightgreen;
+        }
+        p{
+            text-align: center;
+            font-weight: bold;
+        }
+        #opt1{flex-direction: row;}                 /* 주축이 가로(왼->오) / 교차축 세로(위->아래)*/
+        #opt2{flex-direction: row-reverse;}         /* 주축이 가로(오->왼) / 교차축 세로(위->아래)*/
+        #opt3{flex-direction: column;}              /* 주축이 세로(위->아래) / 교차축 가로(왼->오)*/
+        #opt4{flex-direction: column-reverse;}      /* 주축이 세로(위->아래) / 교차축 세로(왼->오)*/
+        
+        .wrapContainer{
+            display: flex;
+            flex-direction: row;
+            background-color: lightgray;
+            border: 1px solid black;
+            margin-bottom: 30px;
+        }
+        .wrapBox{
+            padding : 5px 45px;
+            margin: 5px;
+            width: 80px;
+            background-color: yellow;
+        }
+        #wrapOpt1{flex-wrap: wrap;}         /* 플렉스 항목을 여러 줄로 표시 */
+        #wrapOpt2{flex-wrap: nowrap;}       /* 플렉스 항목을 한 줄에 표시 */
+        /* #wrapOpt3{flex-wrap: wrap-reverse;} 플렉스 항목을 여러 줄로 표시하되, 역순으로 표시 */
+
+        /* flex-flow : direction, wrap을 함께 사용한다. */
+        #wrapOpt3{flex-flow: row-reverse wrap-reverse;}    /*두가지를 같이 사용함*/
+
+        .jusContainer{
+            display: flex;
+            background-color: lightgray;
+            border: 1px solid black;
+            margin-bottom: 30px;
+        }
+        #jusOpt1{justify-content: flex-start;}
+        #jusOpt2{justify-content: flex-end;}
+        #jusOpt3{justify-content: center;}
+        #jusOpt4{justify-content: space-between;}
+        #jusOpt5{justify-content: space-around;}
+        #jusOpt6{justify-content: space-evenly;}
+
+        #mbox1{margin-right: auto;}
+        #mbox2{margin-right: auto;}
+        #nbox2{margin-left: auto;}
+/* justify-content : space 랑 margin-right랑 같이 쓰면 margin으로 인해 빈공간이 없다고 인식되어 justify-content의 space가 모두 0으로 적용됨 */
+/*                   때문에 margin만 설정했을 때와 같은 결과가 나옴 */
+
+        .aliContainer{
+            width: 100%;
+            height: 150px;
+            display: flex;
+            justify-content: flex-start;
+            background-color: lightgray;
+            margin-bottom: 20px;
+        }
+        #aliOpt1{align-items: flex-start;}
+        #aliOpt2{align-items: flex-end;}
+        #aliOpt3{align-items: center;}
+        #aliOpt4{align-items: baseline;}
+        #aliOpt5{align-items: stretch;}         /*기본값*/
+
+        .selfContainer{
+            background-color: lightgray;
+            border: 1px solid black;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            height: 200px;
+        }
+        #self01{align-self: flex-start;}
+        #self02{align-self: flex-end;}
+        #self03{align-self: center;}
+        #self04{align-self: baseline;}
+        #self05{align-self: stretch;}
+        #self06{align-self: auto;}
+        #self07{align-self: baseline;}
+
+        .acContainer{
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-flow: row wrap;
+            border: 1px solid black;
+            background-color: lightgray;
+            margin: 30px;
+            /* float: left; */
+        }
+        .acBox{
+            padding: 10px;
+            margin: 5px;
+            width: 80px;
+        }
+        .acBox:nth-child(odd){background-color: orange;}
+        .acBox:nth-child(even){background-color: lightgreen;}
+        #acOpt1{align-content: flex-start;}
+        #acOpt2{align-content: flex-end;}
+        #acOpt3{align-content: center;}
+        #acOpt4{align-content: space-between;}
+        #acOpt5{align-content: space-around;}
+        #acOpt6{align-content: stretch;}  /* 기본값 */
+
+        .gapContainer{
+            width: 700px;
+            height: 150px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            background-color: lightgray;
+            border: 1px solid black;
+            gap: 20px;
+        }
+        .gapBox{
+            padding : 10px;
+            width: 80px;
+        }
+        .gapBox:nth-child(odd){background-color: orange;}
+        .gapBox:nth-child(even){background-color: lightgreen;}
+
+        .basisCon{
+            width: 800px;
+            display: flex;
+            border: 1px solid black;
+            background-color: lightgray;
+            gap: 30px;
+        }
+        .basisBox{
+            background-color: black;
+            /* width: 150px; */ 
+            /* width를 쓰면 절대 바뀌지 않는 가로 길이가 설정되고, flex-basis는 컨텐츠 안의 내용이 길어짐에 따라 길이가 바뀜(일종의 최소 가로길이 같은 느낌) */
+            flex-basis: 150px;    
+            /* 각각의 항목에 flex-basis 지정(가로길이) */
+        }
+        .basisBox p{
+            color: white;
+            text-align: center;
+            font-size: 2rem;
+        }
+        .growCon{
+            width: 800px;
+            height: 100px;
+            display: flex;
+            border: 1px solid black;
+            gap: 10px;
+        }
+        #growBox1{flex-grow: 1; background-color: orange;}
+        #growBox2{flex-grow: 1; background-color: lightgreen;}
+        #growBox3{flex-grow: 0; background-color: orange;}
+        #growBox4{flex-grow: 2; background-color: lightgreen;}
+</style>
+</head>
+<body>
+    <h1> 1. Flex-direction : 주축(가로, 세로) 결정</h1>
+
+    <div class="container" id="opt1">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+    </div>
+    <div class="container" id="opt2">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+    </div>
+    <div class="container" id="opt3">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+    </div>
+    <div class="container" id="opt4">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+    </div>
+
+    <hr>
+
+    <h1> 2. flex-wrap : 플렉스 항목을 한 줄로 배치/여러줄로 배치</h1>
+
+    <div class="wrapContainer" id="wrapOpt1">
+        <div class="wrapBox"><p>1</p></div>
+        <div class="wrapBox"><p>2</p></div>
+        <div class="wrapBox"><p>3</p></div>
+        <div class="wrapBox"><p>4</p></div>
+        <div class="wrapBox"><p>5</p></div>
+        <div class="wrapBox"><p>6</p></div>
+    </div>
+    <div class="wrapContainer" id="wrapOpt2">
+        <div class="wrapBox"><p>1</p></div>
+        <div class="wrapBox"><p>2</p></div>
+        <div class="wrapBox"><p>3</p></div>
+        <div class="wrapBox"><p>4</p></div>
+        <div class="wrapBox"><p>5</p></div>
+        <div class="wrapBox"><p>6</p></div>
+    </div>
+    <div class="wrapContainer" id="wrapOpt3">
+        <div class="wrapBox"><p>1</p></div>
+        <div class="wrapBox"><p>2</p></div>
+        <div class="wrapBox"><p>3</p></div>
+        <div class="wrapBox"><p>4</p></div>
+        <div class="wrapBox"><p>5</p></div>
+        <div class="wrapBox"><p>6</p></div>
+    </div>
+    
+    <hr>
+
+    <h1> 3. justify-content : 주축을 기준으로 항목을 정렬(배치)</h1>
+
+    <div class="jusContainer" id="jusOpt1">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+    <div class="jusContainer" id="jusOpt2">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+    <div class="jusContainer" id="jusOpt3">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+    <div class="jusContainer" id="jusOpt4">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+    <div class="jusContainer" id="jusOpt5">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+    <div class="jusContainer" id="jusOpt6">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+
+    <hr>
+
+    <h1> 4. justify-content 와 margin을 이용해서 위치 잡기</h1>
+
+    <div class="jusContainer" id="jusOpt1">
+        <div class="box" id="mbox1"><p>1</p></div>
+        <div class="box" id="mbox2"><p>2</p></div>
+        <div class="box" id="mbox3"><p>3</p></div>
+        <div class="box" id="mbox4"><p>4</p></div>
+    </div>
+    <div class="jusContainer" id="jusOpt2">
+        <div class="box" id="nbox1"><p>1</p></div>
+        <div class="box" id="nbox2"><p>2</p></div>
+        <div class="box" id="nbox3"><p>3</p></div>
+        <div class="box" id="nbox4"><p>4</p></div>
+    </div>
+<!-- justify-content: space- 와 margin을 같이 적용했을 경우 -->
+    <div class="jusContainer" id="jusOpt6">
+        <div class="box" id="nbox1"><p>1</p></div>
+        <div class="box" id="nbox2"><p>2</p></div>
+        <div class="box" id="nbox3"><p>3</p></div>
+        <div class="box" id="nbox4"><p>4</p></div>
+    </div>
+<!--  -->
+    <hr>
+
+    <h1> 5. align-items : 교차축을 기준으로 정렬(배치)</h1>
+
+    <div class="aliContainer" id="aliOpt1">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+    <div class="aliContainer" id="aliOpt2">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+    <div class="aliContainer" id="aliOpt3">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+    <div class="aliContainer" id="aliOpt4">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p style="font-size: 14px;">2</p></div>
+        <div class="box"><p style="font-size: 25px;">3</p></div>
+        <div class="box"><p style="font-size: 10px;">4</p></div>
+    </div>
+    <div class="aliContainer" id="aliOpt5">
+        <div class="box"><p>1</p></div>
+        <div class="box"><p>2</p></div>
+        <div class="box"><p>3</p></div>
+        <div class="box"><p>4</p></div>
+    </div>
+
+    <hr>
+
+    <h1> 6. align-self : 각각의 플렉스 항목의 교차축 배치 지정</h1>
+
+    <div class="selfContainer">
+        <div class="box" id="self02"><p>2</p></div>
+        <div class="box" id="self03"><p>3</p></div>
+        <div class="box" id="self04"><p>4</p></div>
+        <div class="box" id="self01"><p>1</p></div>
+        <div class="box" id="self05"><p>5</p></div>
+        <div class="box" id="self06"><p>6</p></div>
+        <div class="box" id="self07"><p>7</p></div>
+    </div>
+
+    <hr>
+    
+    <h1> 7. align-content : wrap으로 인해 플렉스 항목이 여러 줄일 때 배치 방법</h1>
+
+    <div class="acContainer" id="acOpt1">
+        <div class="acBox"><p>1</p></div>
+        <div class="acBox"><p>2</p></div>
+        <div class="acBox"><p>3</p></div>
+        <div class="acBox"><p>4</p></div>
+    </div>
+    <div class="acContainer" id="acOpt2">
+        <div class="acBox"><p>1</p></div>
+        <div class="acBox"><p>2</p></div>
+        <div class="acBox"><p>3</p></div>
+        <div class="acBox"><p>4</p></div>
+    </div>
+    <div class="acContainer" id="acOpt3">
+        <div class="acBox"><p>1</p></div>
+        <div class="acBox"><p>2</p></div>
+        <div class="acBox"><p>3</p></div>
+        <div class="acBox"><p>4</p></div>
+    </div>
+    <div class="acContainer" id="acOpt4">
+        <div class="acBox"><p>1</p></div>
+        <div class="acBox"><p>2</p></div>
+        <div class="acBox"><p>3</p></div>
+        <div class="acBox"><p>4</p></div>
+    </div>
+    <div class="acContainer" id="acOpt5">
+        <div class="acBox"><p>1</p></div>
+        <div class="acBox"><p>2</p></div>
+        <div class="acBox"><p>3</p></div>
+        <div class="acBox"><p>4</p></div>
+    </div>
+    <div class="acContainer" id="acOpt6">
+        <div class="acBox"><p>1</p></div>
+        <div class="acBox"><p>2</p></div>
+        <div class="acBox"><p>3</p></div>
+        <div class="acBox"><p>4</p></div>
+    </div>
+
+    <hr>
+
+    <h1> 8. gap : 플렉스 항목 사이의 간격 지정</h1>
+    <div class="gapContainer">
+            <div class="gapBox"><p>1</p></div>
+            <div class="gapBox"><p>2</p></div>
+            <div class="gapBox"><p>3</p></div>
+            <div class="gapBox"><p>4</p></div>
+            <div class="gapBox"><p>5</p></div>
+    </div>
+
+    <h1> 9. flex-basis : 플렉스 항목의 기본 크기를 지정</h1>
+    
+    <div class="basisCon">
+        <div class="basisBox"><p>가나다라마</p></div>
+        <div class="basisBox"><p>가나다라마바사</p></div>
+        <div class="basisBox"><p>ABCDE</p></div>
+    </div>
+
+    <hr>
+
+    <h1> flex-grow : 플렉스 컨테이너에 남는 공간이 있을 때 어떻게 나눌지 지정</h1>
+
+    <div class="growCon">
+        <div class="basisBox" id="growBox1"><p>1</p></div>
+        <div class="basisBox" id="growBox2"><p>2</p></div>
+        <div class="basisBox" id="growBox3"><p>3</p></div>
+        <div class="basisBox" id="growBox4"><p>4</p></div>
+    </div>
+
+</body>
+</html>

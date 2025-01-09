@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미디어쿼리</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1{font-size: 4rem;}
+        body{
+            background: url(images/10_bg-light.jpg) no-repeat fixed;
+            background-size: cover;
+        }
+        /* 화면이 최소가로길이가 768px이고, 최대가로길이가 1023px이면 아래의 CSS를 따르겠다. */
+        @media screen and (min-width:768px) and (max-width: 1023px) {
+            body{
+                background: url(images/10_bg-dark.jpg) no-repeat fixed;
+                background-size: cover;
+                color: #fff;
+            }    
+        }
+        /* 화면이 최대가로길이가 767px이면 아래의 CSS를 따르겠다. */
+        @media screen and (max-width : 767px){
+            body{
+                background: url(images/10_bg-small.jpg) no-repeat fixed;
+                background-size: cover;
+                color: #fff;
+            }            
+        }
+
+    </style>
+</head>
+<body>
+    <h1> 미디어쿼리</h1>    
+</body>
+</html>

@@ -1,0 +1,22 @@
+#container{
+    width: 570px;
+    margin: 50px auto;
+}
+.card{
+    position: relative;
+    width: 550px;
+    height: 250px;
+    margin: 20px 10px;
+    border: 1px solid #0f0f0f;
+    background-color: white;
+}
+
+.words{
+    position: absolute;
+    left: 310px;
+    top: 50px;
+    text-align: center;
+    width: 200px;
+}
+
+
