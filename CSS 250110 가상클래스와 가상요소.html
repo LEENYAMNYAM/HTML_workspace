@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상클래스와 가상요소</title>
+    <style>
+        .container01{
+            width: 960px;
+            margin: 0 auto;
+        }
+        .navi{
+            width: 960px;
+            height: 60px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid black;
+        }
+        .navi ul{
+            list-style: none;
+            padding-top: 10px;
+            padding-bottom: 5px;
+        }
+        .navi ul li{
+            display: inline-block;
+            width: 150px;
+            padding: 10px;
+        }
+        .pclass01:link, .pclass01:visited{
+            display: block;
+            font-size: 14px;
+            color: black;
+            padding: 10px;
+            text-decoration: none;
+            text-align: center;
+        }
+        .pclass01:hover, .pclass01:focus{
+            background-color: black;
+            color: white;
+        }
+        .pclass01:active{
+            background-color: red;
+        }
+        #signup{
+            background-color: white;
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 20px;
+            width: 400px;
+            margin: 30px auto;
+        }
+        #signup fieldset{
+            border: 1px solid lightgray;
+            margin-bottom: 30px;
+        }
+        #signup legend{
+            font-size: 16px;
+            font-weight: bold;
+            padding-left: 5px;
+            padding-bottom: 10px;
+        }
+        #signup ul li{
+            line-height: 30px;
+            list-style: none;
+            padding: 5px 10px;
+            margin-bottom: 2px;
+        }
+        #signup button{
+            border: 1px solid black;
+            border-radius: 20px;
+            display: block;
+            font-size: 16px;
+            letter-spacing: 1px;
+            margin: auto;
+            padding: 7px 25px;
+        }
+        #signup input:checked + label{
+            color: red;
+            font-weight: bold;
+        }
+        #signup input:disabled{
+            background-color: black;
+        }
+        #targetBtn:target{
+            background-color: yellow;
+        }
+
+        .wrapper03{
+            display: flex;
+            flex-direction: column; /* 주축이 세로 */
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .container03{
+            width: 300px;
+            padding: 20px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .container03 p:first-child{
+            background-color: yellow;
+        }
+        .container03 :last-child{  
+            background-color: skyblue;
+        }
+        .container03 div:only-child{
+            background-color: lightpink;
+        } 
+        
+        .container04{
+            width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 5px;
+        }
+        .item04{
+            border : 1px solid black;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        /* 3번째 요소를 선택 */
+        /* .container04 :nth-child(3){
+            background-color: yellow;
+        } */
+
+        /* ()안의 n은 0부터 그리고 아들요소의 번호는 1번부터 시작*/
+        /* .container04 :nth-child(2n+1){       
+            background-color: yellow;
+        } */
+
+        /* 3의 배수 요소부터 선택 */
+        /* .container04 :nth-child(3n){
+            background-color: yellow;
+        } */
+
+        /* 3번째 요소부터 선택 */
+        /* .container04 :nth-child(n+3){
+            background-color: yellow;
+        } */
+
+        /* 4번째 요소까지 선택(n을 뒤에 적으면 안됨! 꼭 an+b 형태만 써야함.) */
+        .container04 :nth-child(-n+4){   
+            background-color: yellow;
+        }
+
+        .container05{
+            width: 300px;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .container05 p:nth-of-type(1){
+            background-color: yellow;
+        }
+        .container05 div:nth-of-type(2){
+            background-color: skyblue;
+        }
+
+        /* #signup input[type=text], input[type=tel]{
+            border : 1px solid black;
+            border-radius: 3px;
+            padding: 5px;
+            width: 200px;
+        } */
+        #signup input:not([type=radio]){
+            border : 1px solid black;
+            border-radius: 3px;
+            padding: 5px;
+            width: 200px;
+        }
+        .navi07{
+            width: 600px;
+            height: 60px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: black;
+        }
+        .sel07{
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;   /* lowercase, initcap */
+            text-decoration: none;
+            color: white;
+            padding: 0.4rem 0;
+            transition: 0.3s;  /* 변화하는 시간 */
+        }
+        .navi07 .sel07:hover{
+            color: orange;
+        }
+        nav:has(a:hover) a:not(:hover){
+            /* A:has(B) : 요소만 들어갈 수 있다. */
+            /* A:not(B) : 요소와 셀렉터가 들어갈 수 있다. */
+            opacity: 0.3;
+        }
+
+    </style>
+</head>
+<body>
+    <h1> 1. 사용자 동작에 반응하는 가상 클래스 선택자</h1>
+    <!--: link      : 아직 방문하지 않은 링크에 스타일 적용
+        : visited   : 이미 방문한 링크에 스타일 적용
+        : active    : 웹 요소를 활성화했을 때의 스타일 적용
+        : hover     : 마우스 커서를 요소 위에 올렸을 때 스타일 적용
+        : focus     : 웹 요소에 초점이 맞추어졌을 때의 스타일 적용
+     -->
+    <div class="container01">
+        <nav class="navi">
+            <ul>
+                <li><a class="pclass01" href="#">이용 안내</a></li>
+                <li><a class="pclass01" href="#">객실 소개</a></li>
+                <li><a class="pclass01" href="#">예약 방법 및 요금</a></li>
+                <li><a class="pclass01" href="#">예약 하기</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <hr>
+
+    <h1> 2. 요소 상태에 따른 가상 클래스</h1>
+    <!-- 
+        : target            : 앵커로 연결된 부분에 스타일 적용
+        : enable, disabled  : 요소의 사용여부에 따라 스타일 적용 
+        : checked           : 라디오버튼 또는 체크박스에 체크 했을 때
+    -->
+    <a href="#targetBtn">제출 버튼으로 이동</a>
+    <form id="signup">
+        <fieldset>
+            <legend>개인 정보</legend>
+            <ul>
+                <li>
+                    <label for="fullname">이름</label>
+                    <input id="fullname" name="fullname" type="text" required>
+                </li>
+                <li>
+                    <label for="tel">연락처</label>
+                    <input id="tel" name="tel" type="tel" disabled>
+                </li>
+            </ul>
+        </fieldset>
+        <fieldset>
+            <legend>객실 형태</legend>
+            <ul>
+                <li>
+                    <input type="radio" name="room" id="basic">
+                    <label for="basic">기본형(최대 2인)</label>
+                </li>
+                <li>
+                    <input type="radio" name="room" id="family">
+                    <label for="family">가족형(최대 8인)</label>
+                </li>
+            </ul>
+        </fieldset>
+        <button type="submit" id="targetBtn">제출</button>
+    </form>
+
+    <hr>
+
+    <h1> 3. 문서 구조에 따른 가상 클래스 선택자1</h1>
+    <!--
+        : first-child       : 여러 요소들 중에 첫 번째 요소를 선택
+        : last-child        : 여러 요소들 중에 마지막 요소를 선택
+        : only-child        : 여러 요소들 중에 자식 요소가 하나일 때를 선택
+
+    -->
+    <div class="wrapper03">
+        <div class="container03">
+            <p>첫 번째</p>
+            <div>두 번째</div>
+            <p>세 번째</p>
+            <div>네 번째</div>
+        </div>
+        <div class="container03">
+            <div>혼자</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h1> 4. 문서 구조에 따른 가상 클래스 선택자2</h1>
+    <!--
+        : nth-child(숫자 또는 수식 또는 odd/even)       : 지정한 위치의 자식 요소를 선택
+    -->
+        <div class="container04">
+            <div class="item04">1</div>
+            <div class="item04">2</div>
+            <div class="item04">3</div>
+            <div class="item04">4</div>
+            <div class="item04">5</div>
+            <div class="item04">6</div>
+            <div class="item04">7</div>
+        </div>
+
+        <hr>
+
+        <h1> 5. 문서 구조에 따른 가상 클래스 선택자3</h1>
+    <!--
+        : A:nth-of-type(숫자 또는 수식 또는 odd/even)   : A 요소를 기준으로 지정한 위치의 자식 요소를 선택   
+    -->    
+        <div class="container05">
+            <p>첫 번째</p>
+            <div>두 번째</div>
+            <p>세 번째</p>
+            <div>네 번째</div>
+        </div>   
+        
+        <hr>
+
+        <h1> 6. :not() 가상클래스 - 괄호 안에 있는 요소를 제외하고 선택</h1>
+
+        <form id="signup">
+            <fieldset>
+                <legend>개인 정보</legend>
+                <ul>
+                    <li>
+                        <label for="fullname">이름</label>
+                        <input id="fullname" name="fullname" type="text" required>
+                    </li>
+                    <li>
+                        <label for="tel">연락처</label>
+                        <input id="tel" name="tel" type="tel">
+                    </li>
+                </ul>
+            </fieldset>
+            <fieldset>
+                <legend>객실 형태</legend>
+                <ul>
+                    <li>
+                        <input type="radio" name="room" id="basic">
+                        <label for="basic">기본형(최대 2인)</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="room" id="family">
+                        <label for="family">가족형(최대 8인)</label>
+                    </li>
+                </ul>
+            </fieldset>
+            <button type="submit" id="targetBtn">제출</button>
+        </form>
+
+        <hr>
+
+        <h1> 7. :has() 가상클래스 - 괄호 안의 요소를 가지고 있다면 선택</h1>
+
+        <nav class="navi07">
+            <a class="sel07" href="#">home</a>
+            <a class="sel07" href="#">about</a>
+            <a class="sel07" href="#">portfolio</a>
+            <a class="sel07" href="#">contect</a>
+        </nav>
+</body>
+</html>

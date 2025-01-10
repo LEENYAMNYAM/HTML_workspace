@@ -169,10 +169,31 @@
             border: 1px solid black;
             gap: 10px;
         }
+
+        /* flex-grow의 기본값은 0 -> 때문에 growBox1에만 flex-grow를 사용하면 나머지는 0이라고 인식되어 growBox1만 크기가 늘어남 */
         #growBox1{flex-grow: 1; background-color: orange;}
-        #growBox2{flex-grow: 1; background-color: lightgreen;}
+        #growBox2{flex-grow: 0; background-color: lightgreen;}
         #growBox3{flex-grow: 0; background-color: orange;}
-        #growBox4{flex-grow: 2; background-color: lightgreen;}
+        #growBox4{flex-grow: 0; background-color: lightgreen;}
+
+        .shContainer{
+            width: 800px;
+            height: 100px;
+            display: flex;
+            border: 1px  solid black;
+            gap : 10px
+        }
+        .shBox{flex-basis: 300px;}
+        .shBox:nth-child(odd){background : orange}
+        .shBox:nth-child(even){background-color:  lightgreen;}
+        
+        /* flex-shrink의 기본값은 1 -> 때문에 sh1에만 flex-shrink를 사용하면 나머지는 1이라고 인식되어 모든 박스가 동등하게 줄어듬 */ 
+        #sh1{flex-shrink: 1;}
+        #sh2{flex-shrink: 0;}
+        #sh3{flex-shrink: 1;}
+        #sh4{flex-shrink: 2;}
+        
+
 </style>
 </head>
 <body>
@@ -404,13 +425,24 @@
 
     <hr>
 
-    <h1> flex-grow : 플렉스 컨테이너에 남는 공간이 있을 때 어떻게 나눌지 지정</h1>
+    <h1> 10. flex-grow : 플렉스 컨테이너에 남는 공간이 있을 때 어떻게 나눌지 지정</h1>
 
     <div class="growCon">
         <div class="basisBox" id="growBox1"><p>1</p></div>
         <div class="basisBox" id="growBox2"><p>2</p></div>
         <div class="basisBox" id="growBox3"><p>3</p></div>
         <div class="basisBox" id="growBox4"><p>4</p></div>
+    </div>
+
+    <hr>
+
+    <h1> 11. flex-shrink : 플렉스 항목들이 플렉스 컨테이너보다 클 때, 어떻게 축소 시킬지 지정 </h1>
+    
+    <div class="shContainer">
+            <div class="shBox" id="sh1"><p>1</p></div>
+            <div class="shBox" id="sh2"><p>2</p></div>
+            <div class="shBox" id="sh3"><p>3</p></div>
+            <div class="shBox" id="sh4"><p>4</p></div>
     </div>
 
 </body>
