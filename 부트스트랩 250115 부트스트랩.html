@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 부트스트랩(CSS/Javascript/Javascript Bundle) CDN -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> -->
+    
+    <!-- 부트스트랩(CSS/Javascript/Javascript Bundle) 외부파일 -->
+        <link rel="stylesheet" href="../../bootstrap/bootstrap.min.css">
+        <script src="../../bootstrap/bootstrap.min.js"></script>
+        <script src="../../bootstrap/bootstrap.bundle.min.js"></script>
+    
+    <title>부트스트랩</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1> 1. 배경색 ( bg-[색이름] )</h1>
+
+    <div class="box bg-primary"></div>
+    <div class="box bg-info"></div>
+    <div class="box bg-success"></div>
+
+    <hr>
+
+    <h1> 2. 글자색 ( text - [색이름] )</h1>
+
+    <div class="box text-danger">1234</div>
+
+    <hr>
+
+    <h1> 3. 텍스트 정렬 </h1>
+    <h3 class="text-center"> 가운데 정렬</h3>
+    <h3 class="text-end"> 오른쪽 정렬</h3>
+    <h3 class="text-start"> 왼쪽 정렬</h3>
+
+    <hr>
+
+    <h1> 4. 명언 및 명인 이름 </h1>
+    
+    <fugure class="text-center">
+        <blockquote class="blockquote">
+            <p>명언은 내가 적는 것이 명언이다.</p>
+        </blockquote>
+        <figcaption class="blockquote-footer">
+            유명한 누군가가 말함.
+        </figcaption>
+    </fugure>
+
+    <hr>
+
+    <h1> 5. 리스트 불릿 이미지 없애기 및 인라인으로 만들기 </h1>
+
+    <ul class="list-unstyled">
+        <li>이것은 리스트1</li>
+        <li>이것은 리스트2</li>
+        <ul class="list-inline">
+            <li class="list-inline-item">abcd</li>
+            <li class="list-inline-item">efgh</li>
+        </ul>
+    </ul>
+
+    <hr>
+
+    <h1> 6. container 와 container-fluid</h1>
+    <div class="container bg-success">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+        Iure rerum similique cumque obcaecati debitis corrupti, quod tempore illo libero, 
+        eos illum deleniti non exercitationem explicabo, laudantium facilis repellat quae aspernatur!
+    </div>
+    <hr>
+    <div class="container-floud bg-success">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+        Iure rerum similique cumque obcaecati debitis corrupti, quod tempore illo libero, 
+        eos illum deleniti non exercitationem explicabo, laudantium facilis repellat quae aspernatur!
+    </div>
+
+    <hr>
+
+    <h1> 7. margin 과 padding </h1>
+    <!-- m-1~5 / p-1~5를 사용해서 마진과 패딩을 입력할 수 있음. -->
+    <!-- top, right(end), bottom, left(start) (mt me mb ms / pt pe pb ps ) -->
+    <div class="bg-primary ms-5 p-3"> 한 개의 div 입니다.</div>
+
+    <hr>
+
+    <h1> 8. GRID 레이아웃 배치 </h1>
+    <h6> 기본 row - col 이용 </h6>
+    <div class="container mt-5 text-center">
+        <div class="row">
+            <div class="col">
+                <div style="background-color: orange;">content1</div>
+            </div>
+            <div class="col">
+                <div style="background-color: red;">content2</div>
+            </div>
+            <div class="col">
+                <div style="background-color: blue;">content3</div>
+            </div>
+        </div>
+    </div>
+    <h6> 비율을 사용해 나누기 ( col 의 비율은 총 12 로 나뉜다. )</h6>
+    <div class="container mt-5 text-center">
+        <div class="row">
+            <div class="col-2">
+                <div style="background-color: orange;">content1</div>
+            </div>
+            <div class="col-6">
+                <div style="background-color: red;">content2</div>
+            </div>
+            <div class="col-4">
+                <div style="background-color: blue;">content3</div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h1> 9. FLEX 레이아웃 배치 </h1>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col p-3 bg-secondary text-white
+                        d-flex flex-row justify-content-evenly">
+                <div class="p-2 bg-info">Flex Item 1</div>        
+                <div class="p-2 bg-warning">Flex Item 2</div>        
+                <div class="p-2 bg-primary">Flex Item 3</div>        
+            </div>   
+        </div>
+    </div>
+
+    <hr>
+
+    <h1> 10. TABLE </h1>
+    <table class="table table-primary border-primary align-middle caption-top table-hover">
+        <caption class="text-dark">
+            LIST OF USERS
+        </caption>
+        <thead>
+            <tr class="table-danger">
+                <th scope="col" class="table-dark text-color">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr>
+                <th scope="row" class="table-active">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr class="table-active">
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            <tr class="align-top">
+                <th scope="row">4</th>
+                <td>abcdef</td>
+                <td>ghijklmnopqrstuvwxyz</td>
+                <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto blanditiis assumenda aspernatur praesentium ex quidem natus architecto officiis velit tempore, commodi voluptates nostrum porro quaerat! Maiores molestias neque quidem reprehenderit?</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>

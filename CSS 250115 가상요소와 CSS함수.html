@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>가상요소와 CSS함수</title>
+    <style>
+        :root{
+            --main-color: red;
+            --p-color: blue;
+            --span-color: green;
+        }
+        .container01{
+            width: 400px;
+            padding: 40px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        #p1::first-letter{
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        #p2::first-line{
+            font-size: 2rem;
+            font-weight: bold;    
+        }
+
+        .container02{
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .header02::before{
+            content: "*";
+            color: red;
+            margin-right: 5px;
+        }
+        .header02::after{
+            content: "❤";     /*이모지 : window키 + 마침표 */
+            margin-left: 10px
+        }
+        .icon {
+            width: 30px;
+            height: 30px;
+            position: relative;
+            font-size: 50px;
+        }
+        .icon i::after{
+            content: "4";
+            font-size: 10px;
+            text-align: center;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 5px;
+            position: absolute;
+            top : 0px;
+            right: -20px;
+        }
+        .container04{
+            color: var(--main-color);
+        }
+        .p04{
+            color: var(--p-color);
+        }
+        .span04{
+            color: var(--span-color);
+        }
+        .heading05{
+            /* width & height 계산을 border까지 포함해서 계산*/
+            box-sizing: border-box; 
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px black;
+            width: calc(100% - 80px);
+            margin: auto;
+        }
+        .heading06{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            text-shadow: 2px 2px 2px black;
+            /* 100%와 700px 중 작은 값을 선택 */
+            width: min(100%, 700px); 
+            margin: auto;
+        }
+        .heading06 h3{
+            /* 3vw 와  2em 중 큰 값을 선택*/
+            /* (복습) 1vw  : 창전체 크기의 1% */
+            font-size: max(3vw, 2em);
+        }
+        .heading07{
+            background-color: black;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: 2px 2px 2px black;
+        }
+        .heading07 h3{
+            /* 1rem(16px)에서 2rem(32px)이 되기 전까지는 2vw로 지정 */
+            font-size: clamp(1rem, 2vw, 2rem);
+        }
+        .gallery{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap : 10px;
+        }
+        .gallery img{
+            width: 80%;
+            border-radius: 50%;
+        }
+        .title{
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .image-container{
+            border : 1px solid #ccc;
+            padding: 10px;
+            border-radius: 10px;
+            background: white;
+        }
+        /* blur : 블러가 강해질 수록 숫자가 커짐 0이 아무것도 안한것 */
+        .blur{ filter : blur(5px);}            
+        /* brightness : 밝기를 2배로 */
+        .brightness{ filter : brightness(2);}
+        /* contrast : 색의 대비를 200%로 */
+        .contrast{ filter: contrast(200%);}
+        /* drop-shadow : 가로 세로 퍼짐정도 그림자 색상 작성해서 그림자 출력 */
+        .drop-shadow{ filter: drop-shadow(16px 16px 16px black);}
+        /* grayscale : 회색조로 변경 100% */
+        .grayscale{ filter: grayscale(100%);}
+        /* invert : 색상반전 100% */
+        .invert{ filter: invert(100%);}
+        /* sepia : 세피아톤으로 100% 변경 */
+        .sepia{ filter: sepia(100%);}
+        /* opacity : 투명도를 50%로 변경 */
+        .opacity{ filter: opacity(50%);}
+        /* hue-rotate : 모든 hue값을 90도로 변경 p445참고 */
+        .hue-rotate{ filter: hue-rotate(90deg);}
+        /* saturate : 채도를 200%로 변경 */
+        .saturate{ filter: saturate(200%);}
+
+    </style>
+</head>
+<body>
+    <h1> 1. 가상요소( ::first-letter / ::first-line ) </h1>
+    <div class="container01">
+        <h1>CSS 가상요소</h1>
+        <p id="p1">
+            가상 요소를 사용하면 CSS로 시각적 변화를 줄 수 있습니다. 
+            이는 성능을 저하시키지 않으면서 웹 페이지를 꾸밀 수 있는 효율적인 방법입니다.
+        </p>
+        <p id="p2">
+            가상 요소를 사용하면 CSS로 시각적 변화를 줄 수 있습니다. 
+            이는 성능을 저하시키지 않으면서 웹 페이지를 꾸밀 수 있는 효율적인 방법입니다.
+        </p>
+    </div> 
+
+    <hr>
+
+    <h1> 2. 가상요소( ::before / ::after )</h1>
+    <div class="container02">
+        <h3 class="header02">CSS 가상요소</h3>
+        <p><span>가상요소</span>를 사용하면 css로 시각적 변화를 줄 수 있습니다.</p>
+    </div>
+
+    <hr>
+
+    <h1> 3. ::before / ::after 예제 (알림 뱃지 만들기)</h1>
+    <div class="icon">
+        <i class="fa-solid fa-bell"></i>
+    </div>
+
+    <hr>
+
+    <h1> 4. CSS 함수( :root / 변수 / var() 사용 )</h1>
+    <div class="container04">
+        <p class="p04">가나다라<span class="span04">마바사</span></p>
+    </div>
+
+    <hr>
+
+    <h1> 5. CSS 함수 : calc() - 계산식으로 값을 결정</h1>
+    <!--
+        주의사항
+        더하기(+), 뺴기(-)를 사용할 때는 앞 뒤 공백을 반드시 두어야 한다. (기호와 연산자를 구분하기 위해)
+        곱하기(*)를 사용할 때는 2개의 피연산자가 모두 숫자여야 한다.
+        나누기(/)를 사용할 때는 오른쪽 피연산자가 0이면 안된다.  
+    -->
+    <div class="heading05">
+        <h3> CSS 함수 </h3>
+    </div>
+
+    <hr>
+
+    <h1> 6. 최솟값 min(), 최댓값 max() </h1>
+    <div class="heading06">
+        <h3> CSS 함수 </h3>
+    </div>
+
+    <hr> 
+    
+    <h1> 7. 값의 범위를 제한 clamp(최소, 최적, 최대) </h1>
+    <div class="heading07">
+        <h3> CSS 함수 </h3>
+    </div>
+
+    <hr>
+
+    <h1> 8. filter() - 다양한 시각 효과를 추가</h1>
+
+    <div class="orgin">
+        <img src="images/10_cat.png" class="border-radius: 50%;">
+    </div>
+    <div class="gallery">
+        <div class="image-container">
+            <div class="title"> filter:blur(5px)</div>
+            <img src="images/10_cat.png" class="blur">
+        </div>
+        <div class="image-container">
+            <div class="title"> filter:brightness</div>
+            <img src="images/10_cat.png" class="brightness">
+        </div>
+        <div class="image-container">
+            <div class="title"> filter:contrast(200%)</div>
+            <img src="images/10_cat.png" class="constrast">
+        </div>
+        <div class="image-container">
+            <div class="title"> filter:drop-shadow(16px 16px 10px black)</div>
+            <img src="images/10_cat.png" class="drop-shadow">
+        </div>
+        <div class="image-container">
+            <div class="title"> filter:grayscale(100%)</div>
+            <img src="images/10_cat.png" class="grayscale">
+        </div>
+        <div class="image-container">
+            <div class="title"> filter:invert(100%)</div>
+            <img src="images/10_cat.png" class="invert">
+        </div>
+        <div class="image-container">
+            <div class="title"> filter:sepia(100%)</div>
+            <img src="images/10_cat.png" class="sepia">
+        </div>
+        <div class="image-container">
+            <div class="title"> filter:opacity(50%)</div>
+            <img src="images/10_cat.png" class="opacity">
+        </div>
+        <div class="image-container">
+            <div class="title"> filter:hue-rotate(90deg)</div>
+            <img src="images/10_cat.png" class="hue-rotate">
+        </div>
+        <div class="image-container">
+            <div class="title"> filter:saturate(200%)</div>
+            <img src="images/10_cat.png" class="saturate">
+        </div>
+    </div>
+ 
+</body>
+</html>

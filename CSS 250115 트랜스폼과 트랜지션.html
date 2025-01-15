@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>트랜스폼과 트랜지션</title>
+    <style>
+        .container01{
+            width: 800px;
+            height: 200px;
+            margin: 20px auto;
+        }
+        .origin{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            display: inline-block;
+            margin: 40px;
+        }
+        .origin > div {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            transition: 1s;      /* transition : 움직이는 것은 1초동안 부드럽게 움직인다. */
+        }
+        
+        #movex:hover{transform: translateX(50px);}          /* 마우스를 올리면 x축(가로) 50px 이동 */
+        #movey:hover{transform: translateY(20px);}          /* 마우스를 올리면 y축(세로) 20px 이동 */
+        #movexy:hover{transform: translate(10px, 20px);}    /* x축(가로) 10px y축(세로) 20px 이동 */
+
+        .container02{
+            width: 600px;
+            margin: 20px auto;
+        }
+        #scalex:hover{ transform: scalex(2);}               /* x축(가로) 2배 확대 */
+        #scaley:hover{ transform: scaley(1.5);}             /* y축(세로) 1.5배 확대 */
+        #scale:hover{ transform: scale(0.7);}               /* 전체적으로 0.7배 축소*/
+
+        .container03{
+            width: 800px;
+            margin: 20px auto;
+        }
+        #rotate1:hover{ transform: rotate(40deg);}          /* 시계방향(오른쪽)으로 40도 회전*/
+        #rotate2:hover{ transform: rotate(-40deg);}         /* 반시계방향(왼쪽)으로 40도 회전*/
+
+        .origin04{
+            width: 152px;
+            height: 180px;
+            border: 1px solid black;
+            margin: 30px;
+            display: inline-block;
+        }
+        .origin04 > div{
+            width: 152px;
+            height: 180px;
+            background-color: orange;
+        }
+        .rotatex:hover{
+            transform: rotatex(50deg);
+        }
+        #pers{
+            /* 원근감 추가 - 부모 요소에 추가하여야 한다. */
+            perspective: 300px;
+        }
+        
+        .container05{
+            width: 800px;
+            margin: 20px auto;
+        }
+        .origin_pers{
+            width: 100px;
+            height: 100px;
+            margin: 40px;
+            display: inline-block;
+            border: 1px solid black;
+            perspective: 200px;
+        }
+        .origin_pers > div{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            transition: all 3s;
+        }
+        #rotate_x:hover{ transform:rotateX(55deg);}         /* x축 기준 55도 회전 */
+        #rotate_y:hover{ transform:rotateY(55deg);}         /* y축 기준 55도 회전 */
+        #rotate_z:hover{ transform:rotateZ(55deg);}         /* z축 기준 55도 회전 */
+        #rotate_xyz:hover{ transform:rotate3d(2.5, 1.2, -1.5, 55deg);}    /* x,y,z축 기준으로 55도 회전 */
+
+        #skewx:hover{transform: skewX(30deg);}              /* x축 기준으로 30도 비틀기 */
+        #skewy:hover{transform: skewY(15deg);}              /* y축 기준으로 15도 비틀기 */
+        #skewxy:hover{transform: skew(-25deg, -15deg);}     /* x축 -25도, y축 -15도 비틀기 */
+
+        #timing-ex div{
+            display: inline-block;
+            width: 100px;
+            height: 50px;
+            margin: 5px 10px;
+            padding: 5px;
+            color: white;
+            background-color: blue;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+        #timing-ex:hover div{
+            height: 400px;
+        }
+        #timing-ex .ease{ transition: all 3s ease;}             /* 천천히 빠르게 천천히 */
+        #timing-ex .linear{ transition: 3s linear;}             /* 일정한 속도 */
+        #timing-ex .ease-in{ transition: 3s ease-in;}           /* 천천히 빠르게 */
+        #timing-ex .ease-out{ transition: 3s ease-out;}         /* 빠르게 천천히 */
+        #timing-ex .ease-in-out{ transition: 3s ease-in-out;}   /* 천천히 빠르게 천천히 */
+
+        .box08{
+            margin: 50px auto;
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border: 1px solid black;
+            transition: 2s ease-in;     /* 대상:all, 진행시간:2초, 속도함수:ease-in, 지연시간:0초*/
+        }
+        .box08:hover{
+            /*  위의 transition에 대상이 all이기 때문에
+                hover 시에 변화되는 것들로 아래 모두 transition 대상이 된다. 
+            */
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            transform: rotate(270deg);
+        }
+
+    </style>
+</head>
+<body>
+    <h1> 1. translate : 지정한 방향으로 이동 </h1>
+
+    <div class="container01">
+        <div class="origin">
+            <div id="movex"></div>
+        </div>
+        <div class="origin">
+            <div id="movey"></div>
+        </div>
+        <div class="origin">
+            <div id="movexy"></div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h1> 2. scale : 확대 및 축소 </h1>
+
+    <div class="container02">
+        <div class="origin">
+            <div id="scalex"></div>
+        </div>
+        <div class="origin">
+            <div id="scaley"></div>
+        </div>
+        <div class="origin">
+            <div id="scale"></div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h1> 3. rotate : 요소를 회전시킨다 </h1>
+    
+    <div class="container03">
+        <div class="origin">
+            <div id="rotate1">1</div>
+        </div>
+        <div class="origin">
+            <div id="rotate2">2</div>    
+        </div>
+    </div>
+
+    <hr>
+
+    <h1> 4. perspective : 요소에 원근감 주기 </h1>
+
+    <div class="origin04">
+        <div class="rotatex">
+        </div>
+    </div>
+    <div class="origin04" id="pers">
+        <div class="rotatex">
+        </div>
+    </div>
+
+    <hr>
+
+    <h1> 5. rotate3d : x축 y축 z축을 기준으로 회전시킨다. </h1>
+    <div class="container05">
+        <div class="origin_pers">
+            <div id="rotate_x">1</div>
+        </div>
+        <div class="origin_pers">
+            <div id="rotate_y">2</div>    
+        </div>
+        <div class="origin_pers">
+            <div id="rotate_z">3</div>    
+        </div>
+        <div class="origin_pers">
+            <div id="rotate_xyz">4</div>    
+        </div>
+    </div>
+
+    <hr>
+
+    <h1> 6. skew : 요소를 비틀기 </h1>
+
+    <div id="container06">
+        <div class="origin">
+            <div id="skewx">1</div>
+        </div>
+        <div class="origin">
+            <div id="skewy">2</div>
+        </div>
+        <div class="origin">
+            <div id="skewxy">3</div>
+        </div>
+    </div>
+
+    <hr>
+
+
+    <h1> 7. transition : 트랜지션 대상, 시간, 속도곡선, 지연시간 설정</h1>
+    <!--
+        transition-property         - 대상 지정 ( all, background-color, width, height 등등 기본값은 all )
+        transition-duration         - 진행 시간 ( 1s, 2s 등등 ) - 계속 사용했던 것
+        transition-timing-fuction   - 속도 곡선 ( ease, linear, ease-in, ease-out 등등)
+        transition-delay            - 지연 시간 ( 1s, 2s 등등 ) - 얼마나 있다가 시작할 것인가?
+        transition                  - 위 4가지를 한 번에 사용(순서 상관 x, 시간 2개가 나오면 앞 시간이 duration)
+    -->
+    
+    <div id="timing-ex">
+        <div class="ease">ease</div>
+        <div class="linear">linear</div>
+        <div class="ease-in">ease-in</div>
+        <div class="ease-out">ease-out</div>
+        <div class="ease-in-out">ease-in-out</div>
+    </div>
+
+    <hr>
+
+    <h1> 8. transition 예제 </h1>
+    
+    <div class="box08"></div>
+
+</body>
+</html>

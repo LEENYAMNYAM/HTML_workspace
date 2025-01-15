@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            /* 애니메이션 사용 */
+            animation-name: slideRight;             /* 사용할 애니메이션 이름 작성 */
+            animation-duration: 2s;                 /* 애니메이션의 진행 시간 */
+            animation-iteration-count: infinite;    /* 애니메이션의 반복 횟수(무한대로 지정) */
+            animation-direction: alternate;         /* normal(순행), reverse(역행), alternate(순행-역행), alternater-reverse(역행-순행)*/
+        }
+        /* 애니메이션 정의(keyframes) */
+        @keyframes slideRight{
+            /* 0에서 시작해서 */
+            from{
+                transform : translateX(0);
+            }
+            /* x축(우측)으로 500px만큼 이동 */
+            to{
+                transform: translateX(500px);
+            }
+        }
+
+        @keyframes rotate{
+            from{ transform : perspective(120px) rotateX(0deg) rotateY(0deg);}
+            50%{ transform : perspective(120px) rotateX(-180deg) rotateY(0deg);}
+            to{ transform : perspective(120px) rotateX(-180deg) rotateY(-180deg);}
+        }
+        @keyframes bg{
+            /* 퍼센트(%)를 순서대로 적지 않아도, 적힌 퍼센트(%) 순서에 맞게 진행된다. */
+            from{background-color: red;}
+            75%{background-color: yellow;}
+            50%{background-color: green;}
+            25%{background-color: pink;}
+            to{background-color: blue;}
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            margin : 60px auto;
+            animation: rotate 1.5s infinite , bg 1.5s infinite alternate;
+        }
+        .wrap{
+            width: 100%;
+            height: 1000px;
+            background-image: linear-gradient(to right, red, orange);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .button{
+            text-decoration: none;
+            font-size: 1.5em;
+            letter-spacing: 2px;
+            color: white;
+            /* border영역과 다르게 content, padding의 바깥라인에 테두리를 작성(border처럼 추가 공간을 잡아먹지 않음) */
+            outline: 2px solid white;
+            padding: 20px 60px;
+            position: relative;
+            z-index: 5;
+            overflow: hidden; /*요소의 내용이 넘쳐나면 숨긴다.*/
+            transition: color 1s;
+        }
+        .button::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -50px;
+            width: 0;
+            transform: skewX(35deg);
+            height: 100%;
+            background-color: white;
+            /* z-index : 숫자가 높을 수록 요소의 위로 올라온다. */
+            z-index: -5;
+            transition: width 1s;
+        }
+        .button:hover{
+            color: red;
+        }
+        .button:hover:before{
+            width: 150%;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        @keyframes : 애니메이션을 정의
+        animation-delay : 애니메이션의 지연시간
+        animation-direction : 종료한 뒤, 다시 처음부터? / 역순으로?
+        animation-duration : 애니메이션의 진행시간
+        animation-iteration-count : 반복 횟수
+        animation-name : 정의한 애니메이션 이름
+        animation-timing-function : transition-timing-fuction과 동일(속도 곡선)
+        animation : 위 animation 속성을 한 번에 사용 
+    -->
+    <h1> 1. animation 사용하기 </h1>
+
+    <div class="box"></div>
+
+    <hr>
+
+    <h1> 2. animation 사용하기 2 </h1>
+
+    <div class="box2"></div>
+
+    <hr>
+
+    <h1> 3. 트랜스폼과 트랜지션으로 버튼 효과 만들기(p477실습)</h1>
+
+    <div class="wrap">
+        <a href="#" class="button">둘러보기</a>
+    </div>
+
+</body>
+</html>
