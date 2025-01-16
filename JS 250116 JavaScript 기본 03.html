@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    <script>
+        // 1. 사용자 객체 생성
+        const coder = {
+            name : 'JMH',
+            hobby : 'coding',
+            selfIntroductoin(){
+                console.log(`hello, Im ${this.name} and my hobby is ${this.hobby}.`);
+            }
+        }
+        // 2. 사용자 객체 생성자 생성
+        function Coder(name, hobby){
+            this.name = name;
+            this.hobby = hobby;
+            this.selfIntroductoin = function(){
+                console.log(`hello, Im ${this.name} and my hobby is ${this.hobby}!!`);
+            }
+        }
+
+        // // 사용자 객체 사용
+        // console.log(coder.name);
+        // console.log(coder.hobby);
+        // console.log(coder.selfIntroductoin())
+        
+        // 생성자로 인스턴스 생성하여 변수에 넣어서 사용
+        let gamer = new Coder('Gamer', 'Game');
+        console.log(gamer.name);
+        console.log(gamer.hobby);
+        console.log(gamer.selfIntroductoin());
+        
+        // 배열(Array) 객체
+        // 배열 선언하는 방식
+        // 1. let arr = new Array();    /* 배열 크기 지정 x 초기값 x */
+        // 2. let arr = new Array(4);   /* 배열 크기 지정 o 초기값 x */
+        // 3. let arr = ["one", "two", "three", "four"]    /* 초기값을 가진 배열 선언 */ 
+        // 4. let arr = Array("one", "two", "three", "four")     /* 초기값을 가진 배열을 객체를 통해 생성 */
+        let arr = ["one", "two", "three", "four"];
+        console.log(arr);
+        // 배열 객체의 프로퍼티 : lengrh ( 배열 안의 요소 수를 나타낸다. )
+        console.log(`arr.length = ${arr.length}`);
+
+        // 배열 객체의 메소드 : concat, join
+        let num01 = [1,2,3];
+        let chars01 = ['a', 'b', 'c'];
+        let numChars01 = num01.concat(chars01);
+        let charsNum01 = chars01.concat(num01);
+        console.log(`numChars01 = ${numChars01}`);
+        console.log(`charsNum01 = ${charsNum01}`);
+        
+        let joinNum = num01.join();
+        console.log(`joinNum = ${joinNum}`);
+        let joinNum2 = num01.join('/');
+        console.log(`joinNum2 = ${joinNum2}`);
+      
+
+    </script>
+</body>
+</html>

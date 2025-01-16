@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript 함수와 이벤트</title>
+        <style>
+            a:link, a:visited{
+                color : black;
+                text-decoration: none;
+            }
+            ul{
+                list-style: none;
+                width: 500px;
+                margin: 10px auto;
+                padding: 0;
+            }
+            li{
+                display: inline-block;
+                width: 120px;
+                border: 1px solid #ccc;
+                padding: 10px 15px;
+                font-size: 16px;
+                text-align: center;
+            }
+            #result{
+                width: 500px;
+                height: 300px;
+                margin: 30px auto;
+                border: 2px solid #ccc;
+                border-radius: 15px;
+            }
+        </style>
+</head>
+<body>
+    <!-- 8번 마우스 이벤트 차이점 보는 html -->
+    <ul>
+        <li><a href="#" onclick="changeBg('green')">Green</a></li>
+        <li><a href="#" onmousemove="changeBg('orange')">Orange</a></li>
+        <li><a href="#" onmouseover="changeBg('purple')">Purple</a></li>
+        <li><a href="#" onclick="alert('노란색입니다.')">Yellow</a></li>
+    </ul>
+    <div id="result"></div>
+
+
+    <script>
+        // 1. 함수 선언
+        // function 함수명(매개변수){실행문}
+            function add(a, b){
+                let sum = a + b;
+                console.log(`sum = ${sum}`);
+                return sum;
+            }
+            let result = add(10, 15);
+            console.log(`result = ${result}`)
+
+        // 2. 변수 스코프 ( 변수를 선언했을 때 적용되는 범위)
+        //      var , let 차이점
+        //      var : 재선언, 재할당 가능 / 호이스팅(선언을 뒤에 했지만, 선언된 척 한다.)
+        //  재선언 예시
+            var seed = 0;
+            for(let i = 1 ; i <= 5 ; i++){
+                var seed =5;
+                var rst = seed * i;
+                console.log(rst);
+            }
+
+            let seed2 = 0;
+            // let seed2 = 5;               /*  같은 스코프{}에서 재선언을 할 수 없다.*/
+            for(let i = 1 ; i <= 5 ; i++){
+                let seed2 =5;               /* 다른 스코프에선 가능하다. 그리고 여기에서 선언된 seed2의 값은  스코프를 벗어나면 값이 사라짐*/
+                let rst2 = seed2 * i;
+                console.log(rst2);
+            }
+
+        // 호이스팅 예시
+            var x = 10;
+            function displayNumber(){
+                console.log(`x is ${x}`);
+                console.log(`y is ${y}`);
+                var y = 20;
+            }
+            displayNumber();
+
+            // let x2 = 10;
+            // function displayNumber2(){
+            //     console.log(`x is ${x2}`);
+            //     console.log(`y is ${y2}`);      /*y2는 아직 선언되어 있지 않기 때문에 에러가 뜸.*/
+            //     let y2 = 20;
+            // }
+            // displayNumber2();
+
+        // var 변수 : 재선언 o 재항당 o 호이스팅 o  (옛날에 자주 쓰였지만 문제가 많아서 let과 const가 나옴)
+        // let 변수 : 재선언 x 재할당 o 호이스팅 x  (변수이기 때문에 재할당 가능)
+        // const 변수 : 재선언 x 재할당 x 호이스팅 x (상수이기 떄문에 재할당 안됨)
+
+        //  3. 함수 만들기 ( 매개변수, 인수, return )
+        //      매개변수 : 함수를 여러번 실행할 수 있도록 바뀌는 값을 변수로 처리한 것.
+        //      인수 : 함수를 실행할 때 매개변수 자리에 넘겨주는 데이터.
+        //      인자 : 매개변수 + 인수를 합쳐서 부르는 명칭
+        //      return : 함수를 실행하고 반환값을 지정.
+            function addNumber(num1, num2) {
+                let sum = num1 + num2;
+                return sum;
+            }
+            let result03 = addNumber(2,3);
+            console.log(`result03 = ${result03}`);
+
+        // 4. 여러 표현의 함수 만들기 ( 익명 함수 )
+        //      익명 함수 : 이름이 없는 함수 ( 변수에 대입하여 사용한다. )
+            let sum = function(a,b){
+                return a+b;
+            }
+            console.log(`익명 함수 결과 : ${sum(10, 20)}`);
+
+        // 5. 즉시 실행 함수 : 따로 함수 호출을 하지 않아도 바로 실행 된다.
+            /* (function(매개변수){
+                    명령어
+                };(인수)); */
+            (function(a,b) {
+                let sum = a + b;
+                console.log(`sum = ${sum}`);
+            }(100, 200));
+
+        // 6. 화살표 함수 ( 매개변수 없을 때 )
+            const hi = function(){
+                return "안녕하세요?" ;
+            };
+            // function 생략 / 화살표 사용 
+            const hi2 = () => {
+                return "안녕하세요?";
+            };
+            // 위의 예제를 토대로 중괄호와 return 을 생략 가능
+            const hi3 = () => "안녕하세요?";
+            console.log(hi() + hi2() + hi3())
+
+        // 7. 화살표 함수 ( 매개변수가 있을 때 )
+            let sum07 = function(a,b){
+                return a+b;
+            }
+            // function 생략, 화살표 사용
+            let sum007 = (a,b) => { return a + b;};
+            // 중괄호와 return 생략 가능
+            let sum0007 = (a,b) => a+b;
+
+            console.log(`sum0007 = ${sum0007(1,11)}`);
+
+            // **** 화살표 함수는 익명 함수에만 사용 가능
+            // **** 중괄호 안의 내용이 한 줄일 때, 중괄호 생략이 가능 
+            // **** 중괄호 안의 내용이 return 한 줄일 때, 중괄호와 return 생략이 가능
+            
+        // 8. 이벤트 ( 마우스 클릭, 키보드 클릭 등등 ) p581 참고
+            // mouseover 와 mousemove 의 차이점
+            function changeBg(color){
+                let result = document.querySelector(`#result`);
+                result.style.backgroundColor = color;
+            }
+
+        // < 이벤트 적용하는 방법 >
+        // 1. 각 태그를 작성해서 속성으로 on이벤트명 = "함수" 작성
+        //      = 이벤트명에 따른 이벤트를 실행하면 함수가 실행된다.
+        //      ex) <a href="#" onclick ="changeBg('yellow')"> Yellow </a>
+        // 2. document.querySelector 또는 getElementById 와 같은 변수에 요소를 저장하고
+        //    변수.on이벤트명 = 함수; 로 이벤트를 실행하면 함수가 실행된다.
+        //      ex) let result = document.querySelector('#result');
+        //          result.onclick = changeBg();
+    </script>
+</body>
+</html>

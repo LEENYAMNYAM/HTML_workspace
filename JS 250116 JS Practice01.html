@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS 함수 Practice01</title>
+</head>
+<body>
+    <!-- Input 2개를 가지고 키보드 키를 누를 때마다 패스워드 일치 불일치 확인 -->
+    <!-- 2개의 input 값이 같으면 result 에 "비밀번호가 일치합니다." 출력 -->
+    <!-- 2개의 input 값이 다르면 result 에 "비밀번호가 일치하지 않습니다." 출력"" -->
+    <laber for="pw">비밀번호 입력</laber>
+    <input type="text" id="pw" onkeyup="pw_check();">
+    <br>
+    <label for="pw_check">비밀번호확인</label>
+    <input type="text" id="pw_check" onkeyup="pw_check();">
+    <div id="result"></div>
+
+    <script>
+        function pw_check(){
+            let pw = document.querySelector('#pw');
+            let pw_check = document.querySelector('#pw_check');
+            let result = document.querySelector('#result');
+
+            if(pw.value === pw_check.value) result.innerHTML = "값이 같습니다.";
+            else { 
+                result.innerHTML = "값이 다릅니다.";
+                result.style.color = 'red';
+            }
+        }
+        
+    </script>
+
+</body>
+</html>
