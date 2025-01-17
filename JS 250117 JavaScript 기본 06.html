@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>노드와 클래스</title>
+    <style>
+        div{
+            margin-bottom: 20px;
+        }
+        button{
+            padding: 10px 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .disabled{
+            color: #ccc;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+        .enabled{
+            color: #fff;
+            background-color: blue;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 노드를 추가 / 삭제 -->
+    <!-- 노드 리스트 -->
+    <h1>Web Programming</h1>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Javascript</li>
+    </ul>
+    <button onclick="addNode()">노드추가</button>
+    <button onclick="removeNode()">노드삭제</button>
+
+    <hr>
+
+    <div>
+        <label>
+            <input type="checkbox" id="agree">필수항목동의
+        </label>            
+    </div>
+    <div>
+        <button id="proceed" disabled> 다음으로 진행 </button>            
+    </div>
+
+    <script>
+        // 노드 추가/삭제
+        console.log(document.querySelectorAll("li"));
+
+        function addNode(){
+            let newNode = document.createElement("li");
+            newNode.innerText = "추가된 노드";
+            document.body.
+            document.querySelector("ul").appendChild(newNode);
+        }
+        function removeNode(){
+            let lastNode = document.querySelector("ul li:last-child");
+            lastNode.remove();
+        }    
+
+        // 클래스 추가 / 삭제
+        const checkbox = document.querySelector("#agree");
+        const proceedButton = document.querySelector("#proceed");
+
+        // // add() 와 remove() 를 사용해서 클래스 추가 및 삭제
+        // checkbox.addEventListener('change', function(){
+        //     if(this.checked){
+        //         proceedButton.classList.add('enabled');
+        //         proceedButton.classList.remove('disabled');
+        //         proceedButton.disabled = false;
+        //     } else {
+        //         proceedButton.classList.add('disabled');
+        //         proceedButton.classList.remove('enabled');
+        //         proceedButton.disabled = true;
+        //     }
+        // });
+
+        // toggle()을 사용해서 클래스 추가 및 삭제
+        checkbox.addEventListener('change', function(){
+            proceedButton.classList.toggle('enabled', this.checked);
+            proceedButton.classList.toggle('disabled', !this.checked);
+            proceedButton.disabled = !this.checked;
+        })
+        
+    </script>
+
+</body>
+</html>

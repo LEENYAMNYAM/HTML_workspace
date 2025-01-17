@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>객체</title>
+    <style>
+        #container{
+            width: 300px;
+            margin: 20px auto;
+        }
+        button{
+            border : 1px solid black;
+            padding: 15px;
+            font-size: 0.8em;
+            margin-right: 20px;
+        }
+    </style>
 </head>
 <body>
+    <!-- 한 브라우저 내에서 팝업 창 열고 닫기 예제 -->
+    <div id="container">
+        <button onclick="openWin();">팝업 창 열기</button>
+        <button onclick="closeWin();">팝업 창 닫기</button>
+    </div>
     <script>
         // 1. 사용자 객체 생성
         const coder = {
@@ -35,7 +52,7 @@
         console.log(gamer.hobby);
         console.log(gamer.selfIntroductoin());
         
-        // 배열(Array) 객체
+        // ------------------------------------------배열(Array) 객체-----------------------------------------------------
         // 배열 선언하는 방식
         // 1. let arr = new Array();    /* 배열 크기 지정 x 초기값 x */
         // 2. let arr = new Array(4);   /* 배열 크기 지정 o 초기값 x */
@@ -46,19 +63,152 @@
         // 배열 객체의 프로퍼티 : lengrh ( 배열 안의 요소 수를 나타낸다. )
         console.log(`arr.length = ${arr.length}`);
 
-        // 배열 객체의 메소드 : concat, join
+        // 배열 객체의 메소드 : concat, join - 합치기
+        // concat - 두가지 배열을 합치기
         let num01 = [1,2,3];
         let chars01 = ['a', 'b', 'c'];
         let numChars01 = num01.concat(chars01);
         let charsNum01 = chars01.concat(num01);
         console.log(`numChars01 = ${numChars01}`);
         console.log(`charsNum01 = ${charsNum01}`);
-        
+        // 배열 안의 요소를 합치기
         let joinNum = num01.join();
-        console.log(`joinNum = ${joinNum}`);
+        console.log(`joinNum = ${joinNum}`);    /* 배열 안의 요소를 기본 구분자(',')를 통해서 보여준다 */
         let joinNum2 = num01.join('/');
-        console.log(`joinNum2 = ${joinNum2}`);
-      
+        console.log(`joinNum2 = ${joinNum2}`);  /* join매소드에 인수(구분자)가 있을때는 구분자('/'')를 통해서 보여준다. */
+        
+        // 배열 요소 추가 (push , unshift ) 
+        console.log(`length : ${num01.length} | 배열 : ${num01}`);
+        // push : 배열의 끝에 요소를 추가한다. 반환값은 push 후의 length를 반환.
+        let ret1 = num01.push(4,5);                             
+        console.log(`length : ${ret1} | 배열 : ${num01}`);
+        // unshift : 배열의 앞에 요소를 추가한다다. 반환값은 unshift 후의 length를 반환.
+        let ret2 = num01.unshift(0);
+        console.log(`length : ${ret2} | 배열 : ${num01}`);
+
+        // 배열 요소 추출 ( pop , shift )
+        // 기본 배열 : [ a, b, c]
+        // pop : 끝에 있는 요소를 추출(삭제), 추출한 값을 반환한다.
+        let pop1 = chars01.pop();
+        console.log(`꺼낸 요소 : ${pop1} | 배열 : ${chars01}`);
+        // shift : 앞에 있는 요소를 추출(삭제), 추출한 값을 반환한다.
+        let pop2 = chars01.shift();
+        console.log(`꺼낸 요소 : ${pop2} | 배열 : ${chars01}`);
+        
+        // 원하는 위치에 요소를 추가/삭제하는 splice() 메소드
+        // splice()는 인수를 '1개', '2개', '3개 이상'까지 가능하다.
+        let study = ['html', 'css', 'javascript', 'jquery', 'react', 'nodejs'];
+        
+        // 인수가 1개일 때 : 인수(index)부터 끝까지 추출하여 반환한다.
+        let js = study.splice(2);   
+        console.log(`반환된 배열(js) : ${js}`);
+        console.log(`원래 있던 배열(study) : ${study}`);
+
+        // 인수가 2개일 때 : 첫번째 인수(index)부터 두번째 인수(삭제할 개수)를 추출하여 반환한다.
+        let jquery = js.splice(1,1);   
+        console.log(`반환된 배열(jquery) : ${jquery}`);
+        console.log(`변경된 배열(js) : ${js}`);
+
+        // 인수가 3개 이상일 때 
+        // : 첫번째 인수(index)부터 두번째인수(삭제개수)를 삭제하고 
+        //   그 자리{하나도 삭제 안하면 첫번째 인수(index) 앞쪽}에 세번째 인수(배열요소)부터 끝까지의 요소들을 추가한다.
+        let modernJs = js.splice(1, 0, 'typescript', 'spring', 'java');
+        console.log(`반환된 배열(modernJs) : ${modernJs}`);
+        console.log(`변경된 배열(js) : ${js}`);
+
+        // 기본 배열을 바꾸지 않으면서 요소를 추출하는 slice() 메소드
+        let colors = ['red', 'green', 'blue', 'white', 'black'];
+        // 인수가 1개 일 때 : 인수(index)부터 끝까지 요소를 추출한다.(삭제X)
+        console.log(`slice(2) : ${colors.slice(2)} | 기본배열 : ${colors}`);
+        // 인수가 2개 일 때 : 첫번째 인수(index)부터 두번째 인수(index) 바로 전 인수까지 요소를 추출한다.(삭제X)
+        console.log(`slice(2,4) : ${colors.slice(2,4)} | 기본배열 : ${colors}`);
+        
+        // indexOf(인수) : 인수와 같은 요소가 몇번째 인덱스에 있는지 
+        // reverse() : 현재 배열의 역순으로 변경
+        // sort() : 지정한 조건에 따라 정렬
+        // sort() 사용법 참고 : https://hianna.tistory.com/409
+
+
+        // ---------------------------------------------Date 객체-------------------------------------------------------- // 
+        let now = new Date();
+        console.log(now);
+        console.log(now.toLocaleString());          /* 현재 지정된 국가 시간 출력 */
+        let customDay = new Date("2025-01-18");     /* 괄호안 입력 을 YYYY-MM-DD 형식으로 한 상태 */
+        console.log(customDay);                     
+        console.log(customDay.toLocaleString());    
+        // 괄호안 사용 가능한 형식으로는...
+        // YYYY-MM-DDTHH:MM:SS : 년-월-일T시:분:초
+        // MM/DD/YYYY : 월/일/년
+        // ("Mon Jan 20 2024 15:00:41 GMT+0900  (대한민국 표준시)") 이름 형식
+
+        // let setDate = new Date();   
+        // setDate.setFullYear(2025);      /* 4자리 년도 */
+        // setDate.setMonth(11);           /* 월, ( 0 ~ 11 )  0(1월) ~ 11(12월) */
+        // setDate.setDate(11);            /* 일 */
+        // // setDate.setTime();           /* 1970년 1월 1일 0시0분0초 이후 밀리초를 설정 */
+        // setDate.setHours(17);           /* 시 */
+        // setDate.setMinutes(40);         /* 분 */
+        // setDate.setSeconds(40);         /* 초 */
+        // setDate.setMilliseconds(888);   /* 0.nnn초 */ 
+        // // setDate = 2025년 12월 11일 17시 40분 40.888초
+        // console.log(setDate.toLocaleString());
+
+        // console.log(setDate.getFullYear());     /* 4자리 년도 */
+        // console.log(setDate.getMonth());        /* 월, ( 0 ~ 11 )  0(1월) ~ 11(12월) */
+        // console.log(setDate.getDate());         /* 일 */
+        // console.log(setDate.getDay());          /* 요일 ( 0(일) ~ 6(토) ) */
+        // console.log(setDate.getTime());         /* 1970년 1월 1일 0시0분0초 이후 밀리초를 설정 */
+        // console.log(setDate.getHours());        /* 시 */
+        // console.log(setDate.getMinutes());      /* 분 */
+        // console.log(setDate.getSeconds());      /* 초 */
+        // console.log(setDate.getMilliseconds()); /* 0.nnn초 */ 
+
+        // // ---------------------------------------------Math 객체-------------------------------------------------------- // 
+        // // p.606 참고(프로퍼티, 메소드)
+        // // ceil(), floor(), max(), min(), random(), round()
+        // // random() : 0~1 사이의 무작위 수
+        // let seed = prompt("전체 응모자 수 : ");
+        // // seed가 10일때, 0*10 ~ 1*10 >> 유효범위 0~9 인데 1더해서 1~10
+        // let picked = Math.floor((Math.random()*seed) + 1);
+        // alert(`당첨자 : ${picked}번`);
+
+        // // Math 객체와 Date 객체를 사용해서 D-day 계산
+        // let now01 = new Date();             // 현재시간 및 날짜
+        // let firstDay = new Date("2016-04-26");
+
+        // let toNow = now01.getTime();        // 1970-01-01 0:0:0부터 지금까지 밀리초
+        // let toFirst = firstDay.getTime();   // 1970-01-01 0:0:0 부터 지정한 날짜기 밀리초
+        // let passedTime = toNow - toFirst;   // 지금까지 밀리초 - 지정한 날 밀리초
+
+        // // 일 수 계산 ( getTime = 밀리초(0.000초) * 1000(초) * 60(분) * 60(시) * 24(일) )
+        // passedTime = Math.round(passedTime / (1000*60*60*24));
+        // alert(`${passedTime}일`);
+
+        // ---------------------------------------------브라우저 관련 객체-------------------------------------------------------- // 
+        // p611~612 참고
+
+        // // window.open()메소드
+        // // 1번인수 : 팝업창을 띄울 html문서
+        // // 2번인수 : 팝업창 이름.(같은 이름의 팝업창이 있으면 추가하지 않는다. / 안쓰면 새로고침할때마다 새로운 팝업창이 뜸)
+        // // 3번인수 : 창 옵션( width, height, left, top 등등)
+        // window.open('JS 250117 notice.html', 'pop', 'width=500, height=400, left=100 top=50');
+        // let newWin = window.open('JS 250117 notice.html', 'pop', 'width=500, height=400')
+        // if(newWin === null){
+        //     alert("팝업이 차단되어 있습니다. 팝업 차단을 해제해주세요.")
+        // }
+        // // window.close() 를 사용해서 창을 닫을 수 있다.
+
+        // // 듀얼모니터 사용시 팝업창 만드는법 참고 사이트 : https://dev-handbook.tistory.com/50
+
+        function openWin(){
+            let opt = 'width=400, height=350, left=300, top=200 ';
+            // let, var, const 없이 변수를 선언 및 할당을 하면 '전역변수'가 된다.
+            myWin = window.open("JS 250117 notice.html", "pop", opt);
+        }
+        function closeWin(){
+            myWin.close();
+        }
+
 
     </script>
 </body>
