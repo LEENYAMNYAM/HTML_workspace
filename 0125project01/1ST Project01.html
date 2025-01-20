@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lan="ko">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="0125projectCSS/1ST project01.css">
+        <script src="0125project01JS/1ST project01.js"></script>
+        <title> Wavve(웨이브)</title>
+
+    </head>
+    <body>
+        <div class="container01">
+            <header>
+                <nav>
+                <div class="mainLogo01">
+                    <a href="#" class="popupLogo">
+                        <img src="https://www.wavve.com/img/ci-wavve.5b304973.svg" alt="Main Logo">
+                    </a>
+                </div>
+                    <div> </div>
+                </nav>
+
+            </header>
+            <!-- 팝업창 만들기 -->
+            <div class="popup01">
+                <section class="popup main-notice-popup">
+                    <h1 tabindex=1 class="popup-title">전면 팝업</h1>
+                    <!-- 팝업 X버튼 -->
+                    <div class="popup-button-close">    
+                        <a href="#">
+                        <img src="	https://www.wavve.com/img/btn-popup-close.1b1a67e7.svg" alt="팝업 닫기">
+                        </a>
+                    </div>
+                    <!-- 팝업 메인 이미지 -->
+                    <div id="notice-popup-container" class="swiper-container popup-component01 swiper-container-horizontal">
+                        <div class="swiper-wrapper" style="transform : translated3d(-558px, 0px, 0px); transition-duration: 0ms;">
+                            <div class="swiper-slide" data-swiper-slide-index="0" style="width: 508px; margin-right: 50px;">
+                                <div class="popup-component01-list">
+                                    <a href="#" target="_self">
+                                        <img src="https://image.wavve.com/v1/thumbnails/0_0_20_80/service30/crm/1m_layerpopup_20220804_pc.jpg" alt="팝업배너">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 일주일 동안 보지 않기 체크박스 -->
+                    <div class="popup-checkbox check-style">
+                        <input type="checkbox" id="day-close" class="check-blue-dark">
+                        <label for="day-close">
+                            ::before
+                            "일주일 동안 보지 않기"
+                        </label>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </body>
+</html>
