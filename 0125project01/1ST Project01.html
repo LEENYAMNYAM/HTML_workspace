@@ -5,22 +5,67 @@
         <link rel="stylesheet" href="0125projectCSS/1ST project01.css">
         <script src="0125project01JS/1ST project01.js"></script>
         <title> Wavve(웨이브)</title>
-
+        <!-- 폰트 적용 -->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="container01">
-            <header>
-                <nav>
-                <div class="mainLogo01">
-                    <a href="#" class="popupLogo">
-                        <img src="https://www.wavve.com/img/ci-wavve.5b304973.svg" alt="Main Logo">
-                    </a>
-                </div>
-                    <div> </div>
+        <div id="body">
+            <!-- header만들기 -->
+            <header class="header-container">
+                <!-- 네비 -->
+                <nav class="navbar-container">
+                    <div class="navbar-content">
+                        <a href="#" class="logologo">
+                            <img src="https://www.wavve.com/img/ci-wavve.5b304973.svg" alt="Wavve" class="default wavve-logo">
+                        </a>
+                        <div id="menu" class="category-list">
+                            <ul class="w-menu-list">
+                                <li class="w-menu-item">
+                                    <a href="#" class="item-link">드라마</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="#" class="item-link">예능</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="#" class="item-link">영화</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="#" class="item-link">애니</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="#" class="item-link">해외시리즈</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="#" class="item-link">시사교양</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="#" class="item-link">키즈</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="#" class="item-link">영화플러스</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="#" class="item-link">LIVE</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul class="w-menu-list">
+                            <li class="w-menu-item">
+                                <div class="header-search">
+                                    <button tabindex="0" class="search-button">
+                                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.4508 8.90796C15.4508 12.4977 12.5396 15.408 8.94985 15.408C5.3611 15.408 2.45081 12.4977 2.45081 8.90796C2.45081 5.31825 5.3611 2.40796 8.94985 2.40796C12.5396 2.40796 15.4508 5.31825 15.4508 8.90796Z" stroke="#A5A5A5" stroke-width="2"> 
+                                            </path>
+                                            <path d="M14.0474 13.6536L19.7904 19.2229" stroke="#A5A5A5" stroke-width="2" stroke-linecap="round"></path></svg>
+                                    </button>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </nav>
 
             </header>
-            <!-- 팝업창 만들기 -->
+            팝업창 만들기
             <div class="popup01">
                 <section class="popup main-notice-popup">
                     <h1 tabindex=1 class="popup-title">전면 팝업</h1>
@@ -52,6 +97,7 @@
                     </div>
                 </section>
             </div>
+            
         </div>
     </body>
 </html>
