@@ -27,8 +27,6 @@ li{
     margin: 0;
     padding: 0;
     display: list-item;
-    text-align: -webkit-match-parent;
-    unicode-bidi: isolate;
 }
 a{
     font-weight: 400;    
@@ -38,9 +36,26 @@ a, a:active, a:hover, a:link, a:visited{
 }
 a:active, a:hover{
     cursor:pointer;
+    font-size: 18px;
+    color: #fff;
 }
-
-
+button{
+    position: absolute;
+    font-family: 'Noto Sans KR', sans-serif;
+    top: -24%;
+    left: 50%;
+    cursor: pointer;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+span{
+    font-style: normal;    
+}
+h1{
+    display: inline-block;
+}
 
 /**/
 .body{
@@ -51,6 +66,13 @@ a:active, a:hover{
     min-height: 100%;
 
 }
+.title{
+    margin: 0 0 20px;
+    width: 1240px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
 
 /*  header */
 .header-container{
@@ -61,6 +83,8 @@ a:active, a:hover{
     min-width: 1240px;
     background-color: #1b1b1b;
 }
+
+    /* nav */
 .navbar-container{
     width: 100%;
     height: 74px;
@@ -84,10 +108,14 @@ a:active, a:hover{
     display: grid;
     grid-auto-flow: column;
     justify-content: start;
-    gap: 20px;
+    column-gap : 20px;
 }
 .w-menu-list:last-child{
     margin-right: 0;
+}
+.header-search{
+    position: relative;
+    height: 22px;
 }
 .item-link{
     display: flex;
@@ -99,4 +127,154 @@ a:active, a:hover{
     font-size: 18px;
     color: #a5a5a5;
     white-space: nowrap;
+}
+.dropdown-container{
+    position: relative;
+}
+.dropdown-menu-container{
+    top: 100%;
+    z-index: 1200;
+    position: absolute;
+    top: 24px;
+    right: -30px;
+    width: 200px;
+    margin: 23px 4px;
+    
+    background-color: #101010;
+    display: block;
+}
+.item-icon1{
+    position: absolute;
+    top: 5px;
+    left: -40px;
+    width: 22px;
+    height: 22px;
+}
+.item-icon2{
+    width: 22px;
+    height: 22px;
+}
+.item-icon{
+    width: 22px;
+    height: 22px;
+
+}
+.item-text{
+    margin: 0.8px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #a5a5a5;
+}
+.item-wrapper{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.item-count{
+    width: 20px;
+    height: 20px;
+    padding: 0px 10px;
+    background-color: #252525;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+}
+
+/* main */
+    /*팝업*/
+
+
+
+
+    /*배너섹션*/
+.swiper-container{
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto 80px;
+    position: relative;
+    min-width: 1240px;
+    max-width: 3840px;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 2;
+}
+.swiper-pagination-big-banner{
+    position: absolute;
+    bottom: 16px;
+    left: auto;
+    right: calc(50% - 620px);
+    transform: translate(-50%);
+    width: auto;
+    min-width: 45px;
+    padding: 3px 10px;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 20px;
+    color: transparent;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.4;
+    z-index: 3;
+}
+.swiper-pagination-current{
+    color: #fff;
+}
+.swiper-pagination-total{
+    color: hsla(0, 0%, 100%, 0.7);
+}
+.swiper-pagination-total::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1px;
+    height: 10px;
+    transform: translate3d(-50%, -50%, 0);
+    background-color: hsla(0, 0%, 100%, 0.2)
+}
+.main-banner{
+    width: 1440px;
+    height: 800px;
+}
+/* 캐러셀 */
+.carousel-wrapper{
+    width: 1440px;
+    border-radius: 15px;
+    position: relative;
+    margin: 0 auto;
+}
+.carousel{
+    display: flex;
+    gap : 20px;
+    transform: translate3d(0,0,0);
+    transition: all 0.5s;
+}
+.carousel > div > img{
+    width: 1440px;
+    border-radius: 15px;
+    position: relative;
+}
+.banner-images{
+    display: block;
+    width: 100%;
+}
+.banner-title{
+   position: absolute;
+   top: -24%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 5;
+}
+.picture-area{
+    position: relative;
+}
+
+/* 배너 */
+.title-area{
+    color: #fff;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 400;
 }

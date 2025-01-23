@@ -1,0 +1,51 @@
+HTML, CSS 포트폴리오 ( ~ 1/26(일) 23:59:59까지 )
+
+제출내용
+ - 프로젝트 폴더, PPT 파일을 zip 파일로 묶어서 아래의 파일 제출
+ - HTML_Portfolio_본인이름.zip 파일
+
+평가 주제 ( 순수 HTML / CSS 사용 )
+ - 하나의 웹사이트를 참고해서 최대한 비슷하게 만들기(main)
+ - 로그인 / 회원가입 까지 구현, a태그로 링크 연결.
+
+평가 조건
+ - 시맨틱 태그 사용 (header, nav, footer 등등)
+ - 네비게이션 메뉴
+ - 다양한 화면 구현 ( main, 회원가입, 로그인 )
+ - main 에 여러가지 section 구현
+ - 레이아웃 배치 방법 사용 ( flex , grid )
+ - 소스 코드 정리
+     = 각 중요 위치 및 코드에 주석
+     = 들여쓰기
+     = 폴더 ( css 폴더 , images 폴더 )
+ - 기간 내에 완성
+
+피의 게임
+https://image.wavve.com/v1/thumbnails/2480_1016_20_80/operation/image/banner/202501/1737079506819110315.webp
+https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1737079592386669144.webp
+
+펀치드렁크러브
+https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1737099646210366047.webp
+https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1737099713548923990.webp
+
+소방관
+https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1737440357557522814.webp
+https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1737535434031358383.webp
+
+백곰카페
+https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202411/1730770403265651340.webp
+https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1736420269781807851.webp
+
+완벽한 나의 비서
+https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1736234312613610418.webp
+https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1736234409319264134.webp
+
+하이드 지킬,나
+https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1736990421250948121.webp
+https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1736990480575407896.webp
+
+
+
+
+
+
