@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="0125projectCSS/1ST project01.css">
+        <title> Wavve(웨이브)</title>
+        <!-- 폰트 적용 -->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <div id="body">
+            <!-- header만들기 -->
+            <header class="header-container">
+                <!-- 네비 -->
+                <nav class="navbar-container">
+                    <div class="navbar-content">
+                        <!-- 메인로고 -->
+                        <a href="#" class="logologo">
+                            <img src="https://www.wavve.com/img/ci-wavve.5b304973.svg" alt="Wavve" class="default wavve-logo">
+                        </a>
+                        <!-- 메인 네비게이션 내용들 -->
+                        <div id="menu" class="category-list">
+                            <ul class="w-menu-list">
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN56" class="item-link">드라마</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN57" class="item-link">예능</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN59" class="item-link">영화</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN21" class="item-link">애니</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN12" class="item-link">해외시리즈</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN20" class="item-link">시사교양</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN19" class="item-link">키즈</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN18" class="item-link">영화플러스</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/live/index.html" class="item-link">LIVE</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 검색및 로그인버튼--> 
+                        <ul class="w-menu-list">
+                            <li class="w-menu-item">
+                                <div class="header-search">
+                                    <button class="search-button">
+                                        <a class=""  href="https://www.wavve.com/search">
+                                            <img  class="item-icon1" src="0125progectimages/search_icon.png">
+                                        </a>    
+                                    </button>
+                                </div> 
+                            </li>
+                            <li class="w-menu-item">
+                                <div class="dropdown-container">
+                                    <button class="dropdown-trigger-wrapper">
+                                        <img class="item-icon2" src="0125progectimages/user_icon.png">
+                                    </button>
+                                    <!-- 로그인창 hover시 나올 테이블-->
+                                    <div class="dropdown-menu-container">
+                                        <!-- hover시 visibility를 유지하기 + 위치조정용 빈 div -->
+                                        <div class="visibility-div">
+                                        </div>
+                                        <ul class="my-menu-list">
+                                            <li class="item-container">
+                                                <a href="#" class="item-wrapper">
+                                                    <!-- 로그인창 만들어야 함. -->
+                                                    <img  class="item-icon" src="0125progectimages/user_icon.png">
+                                                    <span class="item-text"> 로그인</span>    
+                                                </a>    
+                                            </li>
+                                            <li class="item-container">
+                                                <a href="https://www.wavve.com/voucher/index.html">
+                                                    <img  class="item-icon" src="0125progectimages/ticket_icon.png">
+                                                    <span class="item-text">이용권</span> 
+                                                    <span class="item-count"> 0 </span>   
+                                                </a>    
+                                            </li>
+                                            <li class="item-container">
+                                                <a href="https://www.wavve.com/my/coupon" class="item-wrapper">
+                                                    <img  class="item-icon" src="0125progectimages/coupon_images.png">
+                                                    <span class="item-text"> 쿠폰 등록</span>  
+                                                </a>    
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div> 
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </header>
+            <main>
+            <div class="super-multi-section-list">
+                <!-- 메인배너(캐러셀) -->
+                <section id="main-banner" class="swiper-container">
+                    <!-- 메인배너 아래 번호 -->
+                    <div class="swiper-pagination-big-banner">
+                        <span class="swiper-pagination-current"></span>
+                        <span class="swiper-pagination-total">/ 6</span>
+                    </div>
+                    <div class="swiper-button">
+                        <!-- 메인배너 왼쪽 버튼 -->
+                        <button type="button" class="swiper-button-prev">
+                            <img class="swiper-button-prev-images" src="0125progectimages/pngwing_left.png"></a>
+                        </button>
+                        <!-- 메인배너 오른쪽 버튼 -->
+                        <button type="button" class="swiper-button-next">
+                            <img class="swiper-button-prev-images" src="0125progectimages/pngwing_right.png"></a>
+                        </button>
+                    </div>
+                        <!-- 캐러셀 배너 이미지들 -->
+                    <div class="carousel-wrapper">
+                        <div class="carousel">
+
+                            <div class="picture-area" data-swiper-slide-index="0">
+                                <a class="banner-link" href="https://www.wavve.com/player/vod?programid=C9901_C99000000149&landing=season">
+                                    <!-- 사진이미지 -->
+                                    <img class="banner-images" src="https://image.wavve.com/v1/thumbnails/2480_1016_20_80/operation/image/banner/202501/1737079506819110315.webp">
+                                    <!-- 제목이미지 -->
+                                    <img class="banner-title" src="https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1737079592386669144.webp">
+                                </a>
+                            </div>
+                            <div class="picture-area" data-swiper-slide-index="1">
+                                <a class="banner-link" href="https://www.wavve.com/player/movie?movieid=MV_CF01_SY0000011245">
+                                    <img class="banner-images" src="https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1737099646210366047.webp">
+                                    <img class="banner-title" src="https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1737099713548923990.webp">
+                                </a>
+                            </div>
+                            <div class="picture-area" data-swiper-slide-index="2">
+                                <a class="banner-link" href="https://www.wavve.com/player/movie?landing=season&movieid=MV_EN01_EN000001108">
+                                    <img class="banner-images" src="https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1737440357557522814.webp">
+                                    <img class="banner-title" src="https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1737535434031358383.webp">
+                                </a>
+                            </div>
+                            <div class="picture-area" data-swiper-slide-index="3">
+                                <a class="banner-link" href="https://www.wavve.com/player/vod?programid=C7201_C72000000138&history=season">
+                                    <img class="banner-images" src="https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202411/1730770403265651340.webp">
+                                    <img class="banner-title" src="https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1736420269781807851.webp">
+                                </a>
+                            </div>
+                            <div class="picture-area" data-swiper-slide-index="4">
+                                <a class="banner-link" href="https://www.wavve.com/player/vod?programid=S01_P472657506&landing=season">
+                                    <img class="banner-images" src="https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1736234312613610418.webp">
+                                    <img class="banner-title" src="https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1736234409319264134.webp">
+                                </a>
+                            </div>
+                            <div class="picture-area" data-swiper-slide-index="5">
+                                <a class="banner-link" href="https://www.wavve.com/player/vod?programid=S01_V2000006274&landing=season">
+                                    <img class="banner-images" src="https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1736990421250948121.webp">
+                                    <img class="banner-title" src="https://image.wavve.com/v1/thumbnails/1240_508_20_80/operation/image/banner/202501/1736990480575407896.webp">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>    
+                <!-- 서브 멀티배너1 -->
+                <section id="multisection_index_1" class="multi">
+                    <div class="title">
+                        <!-- 멀티배너 주제-->
+                        <h1 class="title-area">믿고 보는 웨이브 에디터 추천작</h1>
+                        <!-- 더보기 -->
+                        <a data-v-53aa3d8a="" href="https://www.wavve.com/view-more?code=EN1003----GN51" class="btn-more">더보기</a>
+                    </div>
+                    <div class="multir_wrapper">
+                        <!-- 멀티배너 왼쪽 버튼 -->
+                        <button type="button" class="multi-button-prev">
+                            <img class="multi-button-prev-images" src="0125progectimages/pngwing_left.png"></a>
+                        </button>
+                        <!-- 멀티배너 오른쪽 버튼 -->
+                        <button type="button" class="multi-button-next">
+                            <img class="multi-button-prev-images" src="0125progectimages/pngwing_right.png"></a>
+                        </button>
+                        <div class="swiper_wrapper">
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?programid=E01_60055417&landing=season">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202412/1735022400771343278.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?programid=C9901_C99000000149&landing=season">
+                                <div class="thimb-image-wrapper">
+                                    <div id="wavve_origin"></div>
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202411/1731633771584736115.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?programid=M_T60491G&landing=season">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202501/1736150225626657444.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?programid=CG02_CG0000000318&landing=season">
+                                <div class="thimb-image-wrapper">
+                                    <div id="wavve_origin"></div>
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202501/1737011017285119659.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?programid=F6601_F66000000034&landing=season">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202501/1737349885676130594.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?programid=CG02_CG0000000230&landing=season">
+                                <div class="thimb-image-wrapper">
+                                    <div id="wavve_origin"></div>
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/BMS/TVSeason/2023/CG02_CG0000000230-Vertical_LogoY.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?programid=S01_P469785374&landing=season">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202410/1728613201561457273.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?programid=K02_T2024-0618&landing=season">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202501/1737330000743876949.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?programid=C9902_C99000000035&landing=season">
+                                <div class="thimb-image-wrapper">
+                                    <div id="wavve_origin"></div>
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202501/1735888811962106223.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?programid=S01_V0000208651&landing=season">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/BMS/program_poster/202007/S01_V0000208651-2.webp">
+                                </div>
+                            </a>    
+                        </div>
+                    </div>
+                </section>
+                <!-- 서브 멀티배너2 -->
+                <section id="multisection_index_1" class="multi">
+                    <div class="title">
+                        <!-- 멀티배너 주제-->
+                        <h1 class="title-area">실시간 인기 콘텐츠</h1>                        
+                        <!-- 더보기 -->
+                        <a data-v-53aa3d8a="" href="https://www.wavve.com/view-more?code=VN500----GN51&channel=all&orderby=viewtime" class="btn-more">더보기</a>
+                    </div>
+                    <div class="multir_wrapper">
+                        <!-- 멀티배너 왼쪽 버튼 -->
+                        <button type="button" class="multi-button-prev2">
+                            <img class="multi-button-prev-images" src="0125progectimages/pngwing_left.png"></a>
+                        </button>
+                        <!-- 멀티배너 오른쪽 버튼 -->
+                        <button type="button" class="multi-button-next2">
+                            <img class="multi-button-prev-images" src="0125progectimages/pngwing_right.png"></a>
+                        </button>
+                        <div class="swiper_wrapper2">
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?contentid=S03_22000180101.1&page=1">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202411/1731562249393355741.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?contentid=M_EP202501166874.1&page=1">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202409/1726130707026782001.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?contentid=PQV_CS1_29383.1&page=1">
+                                <div class="thimb-image-wrapper">
+                                    <div id="Quick_VOD">Quick VOD</div>
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202412/1734587360228075655.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?contentid=S03_22000180070.1">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202309/1694062320658347760.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?contentid=K02_PS-2024228664-01-000.1">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202412/1734569822129156524.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?contentid=M_EP202501166872.1">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202412/1734403800797043028.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?contentid=S01_E473503193.1">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202410/1728613201561457273.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?contentid=K02_PS-2025007174-01-000.1">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202411/1732672800717096387.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?contentid=S01_E473503230.1">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202402/1708404301458518711.webp">
+                                </div>
+                            </a>
+                            <a class="thimb-image-link" href="https://www.wavve.com/player/vod?contentid=S01_E473496719.1">
+                                <div class="thimb-image-wrapper">
+                                    <img class="thimb-image" src="https://image.wavve.com/v1/thumbnails/240_360_20_80/meta/image/202307/1688707856348829500.webp">
+                                </div>
+                            </a>    
+                        </div>
+                    </div>
+                </section>                   
+
+            </div>
+            </main>
+
+
+            
+        </div>
+        <script src="0125project01JS/1ST project01.js"></script>
+    </body>
+</html>
