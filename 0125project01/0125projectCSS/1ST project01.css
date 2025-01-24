@@ -63,7 +63,6 @@ h1{
     margin: 0;
 }
 
-/**/
 .body{
     height:  100%;
     width: 100%;
@@ -85,7 +84,7 @@ h1{
     position: sticky;   /* 헤더(그 속의 네비)를 화면 상단에 고정 */
     top:0;
     left: 0;
-    z-index: 1750;
+    z-index: 300;
     min-width: 1240px;
     background-color: #1b1b1b;
 }
@@ -140,7 +139,7 @@ h1{
 .dropdown-menu-container{
     box-sizing: border-box;
     top: 100%;
-    z-index: 1200;
+    z-index: 250;
     position: absolute;
     top: 0px;
     right: -5px;
@@ -206,11 +205,6 @@ h1{
 }
 
 /* main */
-    /*팝업*/
-
-
-
-
     /*메인배너 섹션*/
 .swiper-container{
     width: 100%;
@@ -355,6 +349,15 @@ h1{
     left: 0px;
     background-color: rgba(0,0,0,0.25);
 }
+.multi-button-prev3{
+    z-index: 10;
+    width: 30px;
+    height: 50px;
+    position: absolute;
+    top: 145px;
+    left: 0px;
+    background-color: rgba(0,0,0,0.25);
+}
 .multi-button-next{
     z-index: 11;
     width: 30px;
@@ -365,6 +368,15 @@ h1{
     background-color: rgba(0,0,0,0.25);
 }
 .multi-button-next2{
+    z-index: 11;
+    width: 30px;
+    height: 50px;
+    position: absolute;
+    top: 145px;
+    left: 1210px;
+    background-color: rgba(0,0,0,0.25);
+}
+.multi-button-next3{
     z-index: 11;
     width: 30px;
     height: 50px;
@@ -416,6 +428,10 @@ h1{
     display: flex;
     gap: 10px;   
 }
+.swiper_wrapper3{
+    display: flex;
+    gap: 10px;   
+}
 .thimb-image-wrapper{
     border-radius: 10px;
     width: 240px;
@@ -454,4 +470,79 @@ h1{
     font-weight: 500;
     line-height: 22px;
     text-align: center;
+}
+#nth_text{
+    position: absolute;
+    transform: translate(-10px, 333px);
+    z-index: 20;
+    width: 80.56px;
+    height: 24px;
+    color: #fff;
+    border-style: none;
+    font-size: 90px;
+    font-weight: 800;
+    font-style: italic;
+    font-family: none;
+    line-height: 30px;
+    text-align: center;
+    overflow: visible;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* footer */
+footer{
+    background-color: #1b1b1b;
+    border-top: 1px solid #2f2f2f;
+    min-width: 1240px;
+    overflow: hidden;
+    display: block;
+}
+
+.footer_notice {
+    border-bottom: 1px solid #2f2f2f;
+    display: block;
+    position: absolute;
+}
+
+.footer_notice_inner{
+    width: 1240px;
+    margin: 0 auto;
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    z-index: 300;
+}
+
+.footer_notice_h2{
+    position: relative;
+    margin: 0 23px 0 0;
+    float: left
+}
+
+.footer_notice_h2 a{
+    font-size: 18px;
+    color: #a5a5a5;
+}
+
+#swiper-button-next-footer{
+    width: 50px;
+    right: 0px;
+    position:absolute;
+    border-left: 1px solid #2f2f2f;
+    height: 50px;
+    z-index: 50;
+}
+#swiper-button-prev-footer{
+    width: 50px;
+    right: 0px;
+    position:absolute;
+    border-left: 1px solid #2f2f2f;
+    height: 50px;
+    z-index: 50;
+}
+
+#footer_notice{
+    position:absolute;
+    left: 89.250px;
+    margin-right: auto; 
 }

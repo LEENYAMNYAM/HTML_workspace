@@ -207,3 +207,62 @@ document.addEventListener('DOMContentLoaded', function() {
         main_button_next_img.src = main_button_next_img_src;
     });
 });
+
+
+
+// 멀티배너2 캐러셀
+const prevButton_multi3 = document.querySelector('.multi-button-prev3');
+const nextButton_multi3 = document.querySelector('.multi-button-next3');
+const swiper_wrapper3 = document.querySelector('.swiper_wrapper3');
+
+index = 0;
+
+prevButton_multi3.addEventListener('click', () => {
+    if (index === 0) {
+        index = 1;
+    } else {
+        index -= 1;
+    }
+    swiper_wrapper3.style.transform = `translate3d(-${1250 * index}px, 0, 0)`;
+});
+
+nextButton_multi3.addEventListener('click', () => {
+    if (index === 1) {
+        index = 0;
+    } else {
+        index += 1;
+    }
+    swiper_wrapper3.style.transform = `translate3d(-${1250 * index}px, 0, 0)`;
+});
+
+// 멀티배너2 좌/우 버튼 오버될때 이미지(hover효과) 변경
+document.addEventListener('DOMContentLoaded', function() {
+    const main_button_prev3 = document.querySelector('.multi-button-prev3');
+    const main_button_prev_img = main_button_prev3.querySelector('img');
+
+    const main_button_prev_img_src = '0125progectimages/pngwing_left.png';
+    const main_button_prev_img_src_hover = '0125progectimages/pngwing_left_hover.png';
+
+    main_button_prev3.addEventListener('mouseenter', function() {
+        main_button_prev_img.src = main_button_prev_img_src_hover;
+    });
+
+    main_button_prev3.addEventListener('mouseleave', function() {
+        main_button_prev_img.src = main_button_prev_img_src;
+    });
+
+    const main_button_next3 = document.querySelector('.multi-button-next3');
+    const main_button_next_img = main_button_next3.querySelector('img');
+
+    const main_button_next_img_src = '0125progectimages/pngwing_right.png';
+    const main_button_next_img_src_hover = '0125progectimages/pngwing_right_hover.png';
+
+    main_button_next3.addEventListener('mouseenter', function() {
+        main_button_next_img.src = main_button_next_img_src_hover;
+    });
+
+    main_button_next3.addEventListener('mouseleave', function() {
+        main_button_next_img.src = main_button_next_img_src;
+    });
+});
+
