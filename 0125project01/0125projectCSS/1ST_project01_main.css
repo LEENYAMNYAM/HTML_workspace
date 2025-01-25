@@ -33,6 +33,7 @@ a, span{
 }
 a, a:active, a:hover, a:link, a:visited, span, span:active, span:link, span:visited{
     text-decoration: none;
+    
 }
 a:active, a:hover{
     cursor:pointer;
@@ -489,6 +490,7 @@ h1{
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
+
 /* footer */
 footer{
     background-color: #1b1b1b;
@@ -514,8 +516,9 @@ footer{
 }
 
 .footer_notice_h2{
+    width: 89.250px;
     position: relative;
-    margin: 0 23px 0 0;
+    margin: 0;
     float: left
 }
 
@@ -526,23 +529,74 @@ footer{
 
 #swiper-button-next-footer{
     width: 50px;
-    right: 0px;
+    height: 50px;
     position:absolute;
     border-left: 1px solid #2f2f2f;
-    height: 50px;
+    top:0;
+    left:1190px;
     z-index: 50;
 }
 #swiper-button-prev-footer{
     width: 50px;
-    right: 0px;
+    height: 50px;
     position:absolute;
     border-left: 1px solid #2f2f2f;
-    height: 50px;
+    top: 0;
+    left: 1140px;
     z-index: 50;
+}
+#swiper-button-next-footer:hover, #swiper-button-prev-footer:hover{
+    opacity: 0.3;
 }
 
 #footer_notice{
-    position:absolute;
-    left: 89.250px;
-    margin-right: auto; 
+    width: calc(1240px - 89.250px - 100px);
+    height: 50px;
+    position:relative;
+    overflow: hidden;
+    display: flex;
+    margin-left: 89.250px; 
+}
+#footer_notice a, #footer_notice a:link, #footer_notice a:visited{
+    color:#a5a5a5 ;
+    font-size: 18px;
+}
+#footer_notice a:hover{
+    color: #fff;
+}
+
+/* footer menu */
+.footer_menu{
+    width: 1240px;
+    margin: 0 auto;
+    padding: 0 0 100px;
+    position: relative;
+    color: #717171;
+}
+
+.footer-infor-linklist{
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 20px; 
+    display:flex;  
+}
+.footer-infor-linklist li{
+    float: left;
+    margin-right: 24px;
+}
+.footer-infor-linklist a{
+    display: block;;
+    padding: 10px 0;   
+}
+.footer-infor-linklist a:visited{
+    color:#a5a5a5 ;
+    display: block;;
+    padding: 10px 0;   
+}
+.footer-infor-linklist a:hover {
+    color:#fff ;
+    display: block;
+    padding: 10px 0;
+    font-size: 14px;
+    text-decoration: none !important; 
 }

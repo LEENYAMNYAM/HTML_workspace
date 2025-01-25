@@ -1,0 +1,434 @@
+*, body, html{
+    box-sizing: border-box;
+}
+body, html{
+    height: 100%;
+    background-color: #1b1b1b;
+    scrollbar-color: #a5a5a5 #1b1b1b;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+    opacity: 1;
+    transition: opacity 0.7s ease-in;
+}
+body.fade-out{
+    opacity: 0;
+}
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+li{
+    margin: 10px;
+    padding: 0;
+    display: list-item;
+}
+a, span{
+    font-weight: 400;    
+}
+a, a:active, a:hover, a:link, a:visited, span, span:active, span:link, span:visited{
+    text-decoration: none;
+}
+a:active, a:hover{
+    cursor:pointer;
+    font-size: 18px;
+    color: #fff;
+}
+span:active, span:hover{
+    cursor:pointer;
+    font-size: 14px;
+    color: #fff;
+}
+button{
+    position: absolute;
+    font-family: 'Noto Sans KR', sans-serif;
+    top: -24%;
+    left: 50%;
+    cursor: pointer;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+span{
+    font-style: normal;    
+}
+h1{
+    display: inline-block;
+    margin: 0;
+    margin-bottom: 10px;
+    color: #fff;
+    text-align: left;
+    width: 480px;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+h3{
+    margin: 0;
+    font-size: 15px;
+    font-weight: 400;
+    color: #a5a5a5;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+/* 필드  */
+fieldset{
+    border-style : none ;
+    padding: 0;
+    margin: 0;
+}
+label{
+    color: #a5a5a5;
+    font-size: 14px;
+}
+legend{
+    color: #a5a5a5;
+    font-size: 18px;
+    text-align: left;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+hr{
+    border-color: #717171;
+    margin: 30px 0 10px;
+}
+
+
+/* body */
+#body{
+    height:  100%;
+    width: 100%;
+    z-index: 1;            
+    position: relative;
+    min-height: 100%;
+
+}
+
+/*  header */
+.header-container{
+    position: sticky;  
+    top:0;
+    left: 0;
+    z-index: 300;
+    min-width: 1240px;
+    background-color: #1b1b1b;
+}
+
+    /* nav */
+.navbar-container{
+    width: 100%;
+    height: 74px;
+
+}
+.navbar-content{
+    display: flex;
+    align-items: center;
+    width: 1240px;
+    height: 100%;
+    margin: 0 auto;
+}
+.logologo{
+    margin-right: 78px;
+}
+.category-list{
+    flex: 1;
+    overflow: auto;
+}
+.w-menu-list{
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: start;
+    column-gap : 20px;
+}
+.w-menu-list:last-child{
+    margin-right: 0;
+}
+.header-search{
+    position: relative;
+    height: 22px;
+}
+.item-link{
+    display: flex;
+    align-items: center;
+    height: 74px;
+    padding: 0 10px;
+    line-height: 74px;
+    font-weight: 400;
+    font-size: 18px;
+    color: #a5a5a5;
+    white-space: nowrap;
+}
+.dropdown-container{
+    position: relative;
+}
+.dropdown-menu-container{
+    box-sizing: border-box;
+    top: 100%;
+    z-index: 250;
+    position: absolute;
+    top: 0px;
+    right: -5px;
+    width: 200px;
+    margin: 23px 4px;
+    display: block;
+    visibility: hidden;
+}
+.visibility-div{
+    margin-top: 25px;
+}
+.my-menu-list{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    background-color: #101010;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.item-icon1{
+    position: absolute;
+    top: 5px;
+    left: -60px;
+    width: 22px;
+    height: 22px;
+}
+.item-icon2{
+    position: absolute;
+    top: 0px;
+    left: -25px;
+    width: 22px;
+    height: 22px;
+}
+.item-icon{
+    width: 32px;
+    height: 22px;
+    padding-right: 10px;
+}
+.item-text{
+    margin: 0.8px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #a5a5a5;
+}
+.item-wrapper{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.item-count{
+    width: 20px;
+    height: 20px;
+    padding: 0px 10px;
+    background-color: #252525;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+}
+.item-container{
+    margin: 5px auto 5px 10px;
+}
+
+/* login main */
+#main_container{
+    position: relative;
+    margin: 0, auto;
+    display: flex;
+    justify-content: center;
+}
+.login_layout{
+    margin: 80px 0;
+    padding: 40px;
+    width: 560px;
+    height: 1060px;
+    background-color: #252525;
+}
+#id, #password, #passwordconfirm, #user_name, #address, #tel{
+    width: 480px;
+    height: 53px;
+    padding: 0 20px;
+    margin: 5px 0;
+    background-color: #2f2f2f;
+    border-style: none;
+    font-size: 15px;
+    font-weight: 700;
+    color: #a5a5a5;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+/* 기본 체크박스 숨기기 */
+input[type="checkbox"] {
+    display: none;
+}
+
+/* 커스텀 체크박스 스타일 */
+.checkbox-wrapper {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+    margin: 14px 5px 33px;
+}
+
+/* 체크박스의 커스텀 박스 */
+.checkbox-wrapper::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #a5a5a5;
+    border-radius: 3px;
+    background-color: #252525;
+}
+
+/* 체크된 상태의 커스텀 박스 */
+input[type="checkbox"]:checked + .checkbox-wrapper::before {
+    background-color: #1351F9;
+    border-color: #1351F9;
+}
+
+/* 체크 표시 */
+input[type="checkbox"]:checked + .checkbox-wrapper::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* 로그인 버튼 스타일 */
+.login_button {
+    display: block;
+    width: 100%;
+    padding: 17px 0;
+    margin: 0;
+    border: 0;
+    background-color: #1351F9; 
+    color: #fff; 
+    border-radius: 30px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+
+/* footer */
+footer{
+    background-color: #1b1b1b;
+    border-top: 1px solid #2f2f2f;
+    min-width: 1240px;
+    overflow: hidden;
+    display: block;
+}
+
+.footer_notice {
+    border-bottom: 1px solid #2f2f2f;
+    display: block;
+    position: absolute;
+}
+
+.footer_notice_inner{
+    width: 1240px;
+    margin: 0 auto;
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    z-index: 300;
+}
+
+.footer_notice_h2{
+    width: 89.250px;
+    position: relative;
+    margin: 0;
+    float: left
+}
+
+.footer_notice_h2 a{
+    font-size: 18px;
+    color: #a5a5a5;
+}
+
+#swiper-button-next-footer{
+    width: 50px;
+    height: 50px;
+    position:absolute;
+    border-left: 1px solid #2f2f2f;
+    top:0;
+    left:1190px;
+    z-index: 50;
+}
+#swiper-button-prev-footer{
+    width: 50px;
+    height: 50px;
+    position:absolute;
+    border-left: 1px solid #2f2f2f;
+    top: 0;
+    left: 1140px;
+    z-index: 50;
+}
+#swiper-button-next-footer:hover, #swiper-button-prev-footer:hover{
+    opacity: 0.3;
+}
+
+#footer_notice{
+    width: calc(1240px - 89.250px - 100px);
+    height: 50px;
+    position:relative;
+    overflow: hidden;
+    display: flex;
+    margin-left: 89.250px; 
+}
+#footer_notice a, #footer_notice a:link, #footer_notice a:visited{
+    color:#a5a5a5 ;
+    font-size: 18px;
+}
+#footer_notice a:hover{
+    color: #fff;
+}
+
+/* footer menu */
+.footer_menu{
+    width: 1240px;
+    margin: 0 auto;
+    padding: 0 0 100px;
+    position: relative;
+    color: #717171;
+}
+
+.footer-infor-linklist{
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 20px; 
+    display:flex;  
+}
+.footer-infor-linklist li{
+    float: left;
+    margin-right: 24px;
+}
+.footer-infor-linklist a{
+    display: block;;
+    padding: 10px 0;   
+}
+.footer-infor-linklist a:visited{
+    color:#a5a5a5 ;
+    display: block;;
+    padding: 10px 0;   
+}
+.footer-infor-linklist a:hover {
+    color:#fff ;
+    display: block;
+    padding: 10px 0;
+    font-size: 14px;
+    text-decoration: none !important; 
+}

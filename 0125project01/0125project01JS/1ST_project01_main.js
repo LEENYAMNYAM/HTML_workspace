@@ -266,3 +266,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// footer notice 공지글 캐러셀 효과
+const prevButton_footer = document.querySelector('#swiper-button-prev-footer');
+const nextButton_footer = document.querySelector('#swiper-button-next-footer');
+const footer_notice_wrapper = document.querySelector('.footer_notice_wrapper');
+
+index = 0;
+
+prevButton_footer.addEventListener('click',()=>{
+    if( index === 0 ){
+        index = 5;
+    }else{
+        index -= 1;
+    };
+    footer_notice_wrapper.style.transform = `translate3d(0, -${50 * index}px,  0)`;
+});
+nextButton_footer.addEventListener('click',()=>{
+    if( index === 5 ){
+        index = 0;
+    }else{
+        index += 1;
+    }
+    footer_notice_wrapper.style.transform = `translate3d(0, -${50 * index}px, 0)`;
+});

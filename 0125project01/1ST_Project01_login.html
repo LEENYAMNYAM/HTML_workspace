@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="0125projectCSS/1ST_project01_login.css">
+        <title> Wavve(웨이브)</title>
+        <!-- 폰트 적용 -->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+    <body>
+        <div id="body">
+            <!-- header만들기 -->
+            <header class="header-container">
+                <!-- 네비 -->
+                <nav class="navbar-container">
+                    <div class="navbar-content">
+                        <!-- 메인로고 -->
+                        <a href="#" class="logologo">
+                            <img src="https://www.wavve.com/img/ci-wavve.5b304973.svg" alt="Wavve" class="default wavve-logo">
+                        </a>
+                        <!-- 메인 네비게이션 내용들 -->
+                        <div id="menu" class="category-list">
+                            <ul class="w-menu-list">
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN56" class="item-link">드라마</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN57" class="item-link">예능</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN59" class="item-link">영화</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN21" class="item-link">애니</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN12" class="item-link">해외시리즈</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN20" class="item-link">시사교양</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN19" class="item-link">키즈</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/category/main?mainCode=GN18" class="item-link">영화플러스</a>
+                                </li>
+                                <li class="w-menu-item">
+                                    <a href="https://www.wavve.com/live/index.html" class="item-link">LIVE</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- 검색및 로그인버튼--> 
+                        <ul class="w-menu-list">
+                            <li class="w-menu-item">
+                                <div class="header-search">
+                                    <button class="search-button">
+                                        <a class=""  href="https://www.wavve.com/search">
+                                            <img  class="item-icon1" src="0125progectimages/search_icon.png">
+                                        </a>    
+                                    </button>
+                                </div> 
+                            </li>
+                            <li class="w-menu-item">
+                                <div class="dropdown-container">
+                                    <button class="dropdown-trigger-wrapper">
+                                        <img class="item-icon2" src="0125progectimages/user_icon.png">
+                                    </button>
+                                    <!-- 로그인창 hover시 나올 테이블-->
+                                    <div class="dropdown-menu-container">
+                                        <!-- hover시 visibility를 유지하기 + 위치조정용 빈 div -->
+                                        <div class="visibility-div">
+                                        </div>
+                                        <ul class="my-menu-list">
+                                            <li class="item-container">
+                                                <a href="#" class="item-wrapper">
+                                                    <!-- 로그인창 만들어야 함. -->
+                                                    <img  class="item-icon" src="0125progectimages/user_icon.png">
+                                                    <span class="item-text"> 로그인</span>    
+                                                </a>    
+                                            </li>
+                                            <li class="item-container">
+                                                <a href="https://www.wavve.com/voucher/index.html">
+                                                    <img  class="item-icon" src="0125progectimages/ticket_icon.png">
+                                                    <span class="item-text">이용권</span> 
+                                                    <span class="item-count"> 0 </span>   
+                                                </a>    
+                                            </li>
+                                            <li class="item-container">
+                                                <a href="https://www.wavve.com/my/coupon" class="item-wrapper">
+                                                    <img  class="item-icon" src="0125progectimages/coupon_images.png">
+                                                    <span class="item-text"> 쿠폰 등록</span>  
+                                                </a>    
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div> 
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </header>
+            <main>
+                <div id="main_container">
+                    <div class="login_layout">
+                        <form action="#" method="get">
+                            <h1> 로그인 </h1>
+                            <fieldset>
+                                <legend> Wavve 계정으로 로그인</legend>
+                                <ul>
+                                    <li>
+                                        <label for="id"></label>
+                                            <input type="text" id="id" placeholder="이메일 주소 또는 아이디" autofocus required>
+                                    </li>
+                                    <li>
+                                        <label for="password"></label>
+                                            <input type="password" id="password" placeholder="비밀번호" required>
+                                    </li>
+                                </ul>
+                                <div class="checkbox_wrapper">
+                                    <input type="checkbox" id="id_checkbox" checked>
+                                    <label for="id_checkbox" class="checkbox-wrapper">아이디 저장</label>
+                                    <input type="checkbox" id="auto_login_checkbox">
+                                    <label for="auto_login_checkbox" class="checkbox-wrapper">자동 로그인</label>
+                                </div>
+                                <input class="login_button" type="submit" value="로그인">
+                                <ul class="login_sub_ul">
+                                    <li>
+                                        <a class="login_sub" href="https://member.wavve.com/find/id">아이디 찾기</a>
+                                    </li>
+                                    <li class="login_sub">|</li>
+                                    <li>
+                                        <a class="login_sub" href="https://member.wavve.com/find/password">비밀번호 재설정</a>
+                                    </li>
+                                    <li class="login_sub">|</li>
+                                    <li>
+                                        <a class="login_sub" href="1ST_Project01_join.html">회원가입</a>
+                                    </li>
+                                </ul>
+                                <div class="other_login_method">
+                                    <legend>또는 다른 서비스 계정으로 로그인</legend>
+                                    <img class="other_method_image" src="0125progectimages/login_other_method.PNG">
+                                </div>
+                                <div class="textbox">
+                                    <h3>* SNS계정으로 간편하게 가입하여 서비스를 이용하실 수 있습니다.<br>
+                                        기존 POOQ 계정 또는 Wavve 계정과는 연동되지 않으니 이용에 참고하세요.</h3>
+                                </div>
+                            </fieldset>
+
+                        </form>
+                    </div>    
+                </div>   
+            </main>
+        <!-- footer -->
+        <footer>
+            <div ckass="footer_notice">
+                <div class="footer_notice_inner">
+                    <!-- 공지사항 제목 -->
+                    <h2 class="footer_notice_h2">
+                        <a href="https://www.wavve.com/customer/notice_list">공지사항</a>
+                    </h2>
+                    <!-- 공지글 변환  -->
+                    <div id="footer_notice">
+                            <ul class="footer_notice_wrapper" style="transform: translate3d(0px, -300px, 0px); transition-duration: 0ms;">
+                                <li class="swiper-slide" style="height: 50px;">
+                                    <a class="footer-notice-link" href="https://www.wavve.com/customer/notice_view?filterType=all&noticeId=3651&pageNum=1&searchWord=">[업데이트] 1월 3주 프로그램 리스트</a>
+                                </li>
+                                <li class="swiper-slide" style="height: 50px;">
+                                    <a class="footer-notice-link" href="https://www.wavve.com/customer/notice_view?filterType=all&noticeId=3655&pageNum=1&searchWord=">[안내] Wavve 고객센터 답변 지연 안내</a>
+                                </li>
+                                <li class="swiper-slide" style="height: 50px;">
+                                    <a class="footer-notice-link" href="https://www.wavve.com/customer/notice_view?filterType=all&noticeId=3654&pageNum=1&searchWord=" >[안내] AICC(AI 컨텍트센터) 고객센터 도입</a>
+                                </li>
+                                <li class="swiper-slide" style="height: 50px;">
+                                    <a class="footer-notice-link" href="https://www.wavve.com/customer/notice_view?filterType=all&noticeId=3653&pageNum=1&searchWord=" >[점검안내] 2월 3일 MBC 라디오 LIVE 채널 점검</a>
+                                </li>
+                                <li class="swiper-slide" style="height: 50px;">
+                                    <a class="footer-notice-link" href="https://www.wavve.com/customer/notice_view?filterType=all&noticeId=3652&pageNum=1&searchWord=" >[조치완료] Wavve 서비스 진입 오류</a>
+                                </li>
+                                <li class="swiper-slide" style="height: 50px;">
+                                    <a class="footer-notice-link" href="https://www.wavve.com/customer/notice_view?filterType=all&noticeId=3651&pageNum=1&searchWord=" >[업데이트] 1월 3주 프로그램 리스트</a>
+                                </li>
+                                <li class="swiper-slide" style="height: 50px;">
+                                    <a class="footer-notice-link" href="https://www.wavve.com/customer/notice_view?filterType=all&noticeId=3655&pageNum=1&searchWord=" >[안내] Wavve 고객센터 답변 지연 안내</a>
+                                </li>
+                            </ul>
+                    </div>
+                    <!-- 이전/다음 목록 이동 버튼 -->
+                    <button type="button" id="swiper-button-prev-footer">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAlBJREFUaAXtVktrGlEUzvioYqELpRCyiIss7CK7/gJdNMEEQjdSunATfNEEugi0BPoDmkV3iY/4qGIKFUIXDdJmY6kEAv0FdhNw405oScWq0Xx3IQyDEqLn5AFnNvfOnbnf+b7vnHNnZmbkEgfEAXFAHBAHxAFxQBwQB+6iA8lk8i01LxM14FV4iURiZzAYPL/qves+t1x3w6Tvg7yGTOxhfGq3259NijNunzbuAeV6qVQyN5vNj8CcdzqdK4FA4JwSX2GxZwQiHkDEZ8Sy22y2JYhoU4tQeKwZQSk5UEpfEOevpmkvI5FIl0OEwmRr9mKx+Kjf73+DkAbK6QWnCCWEJSP5fN7VarW+IwunELCJcaCCcV7kGcnlcrMQUQX542g0unETIpRBpELS6bS73W6fgHweIrY5M2DEJhMCEYvdbrdqMpk+QMR7YyDuezIhvV5vGWSr6IldbtKj8MmEWK3WTyipBfyCpHBSkeGOIj1qjfTUKhQKD9HoRwjU8Hg8Qa/X2xsVlGONVIgiWC6XbfV6/RBZuXC73QG/3/+fg7gRk1yIClCpVCy1Wu0AU5fD4VgLBoP/jIGp71mEKJKqT9Av+5g+wUnmxyHwh5q8Ho+tKdH4/Vgsto7xF0T9yGazj/WBqedsQoZE8U15DSFfO53Oz0wmMzdcpx7ZSstIFGW2hbVXZrPZFwqFzozPp72/MSGKaDwej6DU3qFnfOFw+Pe05PX72UtLHww9k0SZvVG/9/r1eztPpVKr95a8EBcHxAFxQBwQB8QBcUAcEAdu3YFLPjOyQF+dJGYAAAAASUVORK5CYII=" alt="이전목록">
+                    </button>
+                    <button type="button" id="swiper-button-next-footer">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTU2RTc3QzVDNUU2MTFFNzhGNzQ4QUM1NTY5RjA2NDMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTU2RTc3QzZDNUU2MTFFNzhGNzQ4QUM1NTY5RjA2NDMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxNTZFNzdDM0M1RTYxMUU3OEY3NDhBQzU1NjlGMDY0MyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxNTZFNzdDNEM1RTYxMUU3OEY3NDhBQzU1NjlGMDY0MyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvXeOssAAAH+SURBVHja7Jm/SwJhGMe9y0uwMJCCajAiyKU/oDGnQlwkkCDQIEKFhraioaWphpaI9PxFYg7SEtERDRmJU/9AjrY06VSHeZfX9wZBGsLhunz1eeB4Hz249/nc932f53k5TtM0Sz8Yb+kTIxACIRACIRACIRACGQQQURT3OI6zdHv1LAi6aX8sFjtmXhGbzbYMmCXAnGPkzALhjD6P6MulUCiM1uv1W/x8dTqdG4FA4OsXBXt3syPwd10ZuOMAugLYMJOKtC0ejwt4fh6uA//7w+GwzJQibUPgCpbWGoJ9a7Vad7lczsGkIh1vnYM6pxgX7Xb7cigUqjGlSAecFolEtjHey7JcymQyk0xXdsDsA+ai0WiUk8nkDNMtCmCOeJ4/URSlBJgFpnstJIEzDCVVVVeYBcHm5lH1RSyxOUEQ8kxlrbYVi0VrpVLJwp1C9vIFg8EPo+Y3DUSSJFu1Wi3g/pDL5Vr1er2fRqZfU0Cy2ewI0u413Jrb7V73eDyq0XXkz0FQCMdQ1SW4L8hYW7jfYq5FSafTEwj0EcE/R6PRzZ8QTNSRVCo13Ww2nwByAyV2mDyzJxKJWRS8ss4DJQ6YPFgBYh574gHPPQREvIu6Ysi8VqPfjN6uI7hdQFyaXWkNvURR9P3H/Bx9QyQQAiEQAiEQAiEQAiGQgQH5FmAAnG5iNuw7AaQAAAAASUVORK5CYII=" alt="다음목록">
+                    </button>
+                </div>
+            </div>
+            <div class="footer_menu">
+                <div class="footer-infor-linklist">
+                    <ul>
+                        <li>
+                            <a href="https://www.contentwavve.com/">회사소개</a>
+                        </li>
+                        <li>
+                            <a href="https://www.wavve.com/customer/service">서비스 소개</a>
+                        </li>
+                        <li>
+                            <a href="https://www.wavve.com/customer/agreement">이용약관</a>
+                        </li>
+                        <li class="footer-privacy">
+                            <a href="https://www.wavve.com/customer/agreement?category=privacy">개인정보 처리방침</a>
+                        </li>
+                        <li>
+                            <a href="https://www.wavve.com/customer/notice_list">고객센터</a>
+                        </li>
+                        <li>
+                            <a href="https://www.wavve.com/customer/event_list">이벤트</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-infor-detail">
+
+                </div>
+            </div>
+
+        </footer>
+        <script src="0125project01JS/1ST_project01_login.js"></script>
+    </body>
+</html>
