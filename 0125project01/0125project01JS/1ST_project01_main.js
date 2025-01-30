@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// 멀티배너 좌/우 버튼 오버될때 이미지(hover효과) 변경
+// 멀티배너1 좌/우 버튼 오버될때 이미지(hover효과) 변경
 document.addEventListener('DOMContentLoaded', function() {
     const main_button_prev = document.querySelector('.multi-button-prev');
     const main_button_prev_img = main_button_prev.querySelector('img');
@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// 멀티배너2 캐러셀
+// 멀티배너3 캐러셀
 const prevButton_multi3 = document.querySelector('.multi-button-prev3');
 const nextButton_multi3 = document.querySelector('.multi-button-next3');
 const swiper_wrapper3 = document.querySelector('.swiper_wrapper3');
@@ -235,7 +235,7 @@ nextButton_multi3.addEventListener('click', () => {
     swiper_wrapper3.style.transform = `translate3d(-${1250 * index}px, 0, 0)`;
 });
 
-// 멀티배너2 좌/우 버튼 오버될때 이미지(hover효과) 변경
+// 멀티배너3 좌/우 버튼 오버될때 이미지(hover효과) 변경
 document.addEventListener('DOMContentLoaded', function() {
     const main_button_prev3 = document.querySelector('.multi-button-prev3');
     const main_button_prev_img = main_button_prev3.querySelector('img');
